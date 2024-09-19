@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  environment.systemPackages = [ pkgs.protonmail-bridge-gui ];
   systemd.user.services.protonmail-bridge = {
     description = "Protonmail Bridge";
     enable = true;
