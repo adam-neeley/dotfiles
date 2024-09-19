@@ -17,6 +17,9 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      # git
+      git
+      github-cli
       # c
       clang
       clang-tools
