@@ -1,7 +1,7 @@
 { inputs, config, lib, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ hyprpaper libnotify fuzzel ];
+  home.packages = with pkgs; [ hyprpaper libnotify fuzzel waylock ];
 
   programs.swaylock = {
     enable = true;
