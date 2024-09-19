@@ -31,6 +31,34 @@ in {
       (pkgs.nerdfonts.override {
         fonts = [ "NerdFontsSymbolsOnly" "JetBrainsMono" ];
       })
+
+      # misc TODO refactor
+      unzip
+      ffmpeg
+      pv
+      parted
+      gparted
+      pinentry-qt
+      zip
+      p7zip
+      rpi-imager
+      arp-scan
+      sftpman
+      filezilla
+      hyprshot
+      protonmail-bridge-gui
+      protonmail-desktop
+      dolphin
+      git-extras
+      protonvpn-cli
+      protonvpn-gui
+      qbittorrent-qt5
+      sshfs
+      figlet
+      shellcheck
+      shfmt
+      cmake
+      github-cli
     ];
 
     # environment.sessionVariables = { QT_QPA_PLATFORMTHEME = "qt6ct"; };
