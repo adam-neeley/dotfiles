@@ -25,10 +25,7 @@
           format = "{:%a %b %d  %H:%M}";
           # format-alt = "{:%a, %d. %b  %H:%M}";
         };
-        modules-left = [
-          # "wlr/taskbar"
-          "hyprland/workspaces"
-        ];
+        modules-left = [ "wlr/taskbar" ];
         modules-center = [ "clock" ];
         modules-right = [ "mpd" "bluetooth" "battery" ];
       };
