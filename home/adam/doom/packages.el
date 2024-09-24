@@ -3,3 +3,4 @@
 (package! go-mode)
 (package! deno-fmt)
 (package! gameoflife)
+(package! sudoku)

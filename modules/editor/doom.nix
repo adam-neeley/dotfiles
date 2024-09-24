@@ -13,7 +13,7 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      emacs-unstable
+      #emacs-unstable
       binutils
       ## Doom dependencies
       git

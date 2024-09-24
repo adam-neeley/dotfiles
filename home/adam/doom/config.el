@@ -12,12 +12,13 @@
       user-mail-address "aneeley@gmail.com")
 
 ;; ui
-(setq
+(setq!
  ;; doom-theme 'doom-bluloco-dark
  ;; doom-theme 'doom-homage-black
- doom-theme 'modus-vivendi
+ doom-theme 'doom-badger
+ ;; doom-theme 'doom-feather-dark
+ ;; doom-theme 'modus-vivendi
  ;; doom-theme 'doom-opera
-
  fancy-splash-image (concat doom-user-dir "splash.png")
 
  company-idle-delay 0
@@ -55,9 +56,20 @@
        org-startup-with-latex-preview 't
        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "INTR(i)" "DONE(d)"))
        org-agenda-with-colors 't
-       org-hide-emphasis-markers 't
        org-hide-macro-markers 't
        org-hide-emphasis-markers 't)
+
+(plist-put! org-babel-default-header-args  '( :results . "drawer" ))
+
+(defun org-babel-execute:mips (body params)
+  "Execute a block of MIPS code with org-babel."
+  (let ((in-file (org-babel-temp-file "m" ".mips")))
+    (with-temp-file in-file
+      (insert body))
+    (org-babel-eval
+     (format "Mars nc %s"
+             (org-babel-process-file-name in-file))
+     "")))
 
 (custom-set-faces!
   nil
