@@ -1,0 +1,3 @@
+* Inbox
+** TODO remove unused packages
+** TODO merge /home and /modules
