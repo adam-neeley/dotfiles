@@ -49,7 +49,6 @@
         inherit (nixpkgs) lib;
         inherit pkgs;
       };
-
       supportedSystems = [ "x86_64-linux" ];
       forEachSupportedSystem = f:
         nixpkgs.lib.genAttrs supportedSystems
@@ -59,7 +58,7 @@
       nixosConfigurations = {
 
         iron = nixpkgs.lib.nixosSystem rec {
-          system = "x86_64-linux";
+          inherit system;
 
           specialArgs = {
             inherit inputs;
