@@ -640,19 +640,16 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "nixpkgs-my": {
       "locked": {
-        "lastModified": 1726463316,
-        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
-        "type": "github"
+        "lastModified": 0,
+        "narHash": "sha256-5d9aLR/vp8mx3vMX5BN4/TWQtLxsKjkxHJLsNtcz+HA=",
+        "path": "/home/adam/code/nixpkgs",
+        "type": "path"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "path": "/home/adam/code/nixpkgs",
+        "type": "path"
       }
     },
     "nixpkgs_2": {
@@ -759,7 +756,7 @@
         "nix-search": "nix-search",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_5",
-        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs-my": "nixpkgs-my",
         "nixvim": "nixvim"
       }
     },

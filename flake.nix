@@ -7,8 +7,7 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    # nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
+    nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,23 +36,25 @@
     emacs-overlay.inputs.nixpkgs-stable.follows = "nixpkgs";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
 
-    # raspberry-pi-nix.url = "github:tstat/raspberry-pi-nix";
-
     nixvim.url = "github:nix-community/nixvim/nixos-24.05";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
-  outputs =
-    { self, nix-search, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs = { self, nix-search, nixpkgs, home-manager, ... }@inputs:
     let
       pkgs = import nixpkgs { };
-      pkgs-unstable = import nixpkgs-unstable { };
       lib = import ./lib {
         inherit self;
         inherit (nixpkgs) lib;
         inherit pkgs;
       };
+
+      supportedSystems = [ "x86_64-linux" ];
+      forEachSupportedSystem = f:
+        nixpkgs.lib.genAttrs supportedSystems
+        (system: f { pkgs = import nixpkgs { inherit system; }; });
+      system = "x86_64-linux";
     in {
       nixosConfigurations = {
 
@@ -93,5 +94,11 @@
           ];
         };
       };
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = [ ];
+          inherit system;
+        };
+      });
     };
 }
