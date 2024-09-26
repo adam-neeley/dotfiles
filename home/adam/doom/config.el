@@ -59,7 +59,28 @@
        org-hide-macro-markers 't
        org-hide-emphasis-markers 't)
 
-(plist-put! org-babel-default-header-args  '( :results . "drawer" ))
+(defvar my-org-hidden-keywords
+  '(title author date email tags options description))
+
+(defun org-hide-keywords ()
+  (save-excursion
+    (let (beg end ov)
+      (goto-char (point-min))
+      (while (re-search-forward
+              (concat "\\(^[ \t]*#\\+\\)\\("
+                      (mapconcat (lambda (kw)
+                                   (format "%s:\s"(symbol-name kw)))
+                                 my-org-hidden-keywords "\\|")
+                      "\\)")
+              nil t)
+        (setq beg (match-beginning 1)
+              end (match-end 2)
+              ov  (make-overlay beg end))
+        (overlay-put ov 'invisible t)))))
+
+(add-hook 'org-mode-hook 'org-hide-keywords)
+
+;; (plist-put! org-babel-default-header-args  '( :results . "drawer" ))
 
 (defun org-babel-execute:mips (body params)
   "Execute a block of MIPS code with org-babel."
