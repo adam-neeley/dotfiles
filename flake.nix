@@ -2,12 +2,12 @@
   description = "monadam's nice config";
 
   inputs = {
+    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
