@@ -52,7 +52,12 @@
 
 ;; org-mode
 (setq! org-directory    "~/docs/org/"
-       org-agenda-files '("~/docs/org/")
+       org-agenda-files (apply 'append
+                               (mapcar
+                                (lambda (directory)
+                                  (directory-files-recursively
+                                   directory org-agenda-file-regexp))
+                                '("~/docs/org/" "~/school/humboldt/")))
        org-startup-with-latex-preview 't
        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "INTR(i)" "DONE(d)"))
        org-agenda-with-colors 't
