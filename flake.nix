@@ -72,15 +72,6 @@
             inputs.nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
             {
-              programs.nixvim.enable = true;
-              programs.nixvim.plugins = {
-                lazy.enable = true;
-                lightline.enable = true;
-              };
-              environment.systemPackages =
-                [ nix-search.packages.${system}.default ];
-            }
-            {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
                 backupFileExtension = "bak";

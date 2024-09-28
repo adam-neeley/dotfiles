@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, system, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -9,6 +9,7 @@
     bat
     unar # unarchive .zip etc
     sutils
+    inputs.nix-search.packages.${system}.default
   ];
 
   home-manager.users.adam = {
