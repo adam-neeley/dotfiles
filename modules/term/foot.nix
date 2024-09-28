@@ -11,7 +11,7 @@ in {
       settings = {
         # see Defaults at bottom
         main = {
-          font = "monospace:size=14";
+          font = "monospace:size=12";
           # font-size-adjustment = 2.0;
         };
         colors = {

@@ -33,7 +33,7 @@
 
 
 ;; fonts
-(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :weight nil :size 20)
+(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :weight nil :size 16)
        doom-font-increment 1
        doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 24))
 
