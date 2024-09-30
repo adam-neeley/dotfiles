@@ -26,12 +26,7 @@ with builtins; {
 
       editor.doom.enable = true;
 
-      code = {
-        enable = true;
-        haskell.enable = true;
-        web.enable = true;
-        nix.enable = true;
-      };
+      code = { enable = true; };
 
       media = {
         enable = true;
