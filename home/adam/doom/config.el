@@ -57,7 +57,7 @@
                                 (lambda (directory)
                                   (directory-files-recursively
                                    directory org-agenda-file-regexp))
-                                '("~/docs/org/" "~/school/humboldt/")))
+                                '("~/docs/org/" "~/school/humboldt/" "~/dotfiles/")))
        org-startup-with-latex-preview 't
        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "INTR(i)" "DONE(d)"))
        org-agenda-with-colors 't
