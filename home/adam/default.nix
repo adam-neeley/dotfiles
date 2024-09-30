@@ -21,6 +21,7 @@
         EDITOR = "emacsclient --no-window-system";
         VISUAL = "emacsclient --create-frame";
         DOTFILES = "/home/adam/dotfiles";
+        NIX_ALLOW_UNFREE = 1;
       };
       stateVersion = "23.05";
     };

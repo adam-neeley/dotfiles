@@ -43,7 +43,7 @@
 
   outputs = { self, nix-search, nixpkgs, home-manager, ... }@inputs:
     let
-      pkgs = import nixpkgs { };
+      pkgs = import nixpkgs { config.allowUnfree = true; };
       lib = import ./lib {
         inherit self;
         inherit (nixpkgs) lib;
