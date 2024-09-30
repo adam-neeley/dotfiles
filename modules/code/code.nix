@@ -41,7 +41,7 @@ in {
       ruby
 
       # latex
-      # texlive.combined.scheme-medium
+      texlive.combined.scheme-medium
       # texlive.combined.scheme-full
       # texlab
 
