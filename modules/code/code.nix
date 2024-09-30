@@ -4,9 +4,6 @@ let cfg = config.modules.code;
 in {
 
   options.modules.code.enable = lib.mkEnableOption false;
-  # options.modules.code.nix.enable = lib.mkEnableOption false;
-  # options.modules.code.web.enable = lib.mkEnableOption false;
-  # options.modules.code.haskell.enable = lib.mkEnableOption false;
 
   config = lib.mkIf cfg.enable {
     programs.direnv.enable = true;
@@ -18,18 +15,18 @@ in {
 
     environment.systemPackages = with pkgs; [
       # git
-      git
+      (pkgs.git.override { guiSupport = true; })
       github-cli
+
       # c
       clang
       clang-tools
       glibc
-      # cmake
+      cmake
       ccls # lsp
       libcxx
       gcc
       libtool
-      llvmPackages.libcxx
       libclang
       cmake-language-server
 
@@ -37,7 +34,7 @@ in {
       python311Packages.pip
       python311
 
-      #ruby
+      # ruby
       ruby
 
       # latex

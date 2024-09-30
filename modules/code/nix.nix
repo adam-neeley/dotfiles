@@ -1,15 +1,11 @@
 { config, lib, pkgs, ... }:
 
-{
-
-  options.modules.code.nix.enable = lib.mkEnableOption false;
-
-  config = {
+let cfg = config.modules.code;
+in {
+  config = lib.mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       nixd # lsp
-      direnv
       nixfmt-classic
     ];
   };
-
 }

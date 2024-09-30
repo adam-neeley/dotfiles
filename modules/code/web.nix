@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.modules.code.web;
+let
+  cfg = config.modules.code;
+  # let cfg = config.modules.code.web;
 in {
   options.modules.code.web = { enable = mkEnableOption false; };
 
