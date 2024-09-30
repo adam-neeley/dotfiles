@@ -18,16 +18,5 @@ in {
 
     security.pam.services.hyprlock = { };
     security.pam.services.swaylock = { };
-
-    environment.systemPackages = with pkgs; [
-      clang
-      gcc
-      bear
-      # cmake
-      gnumake
-      pkg-config
-      llvmPackages.libcxx
-      meson
-    ];
   };
 }
