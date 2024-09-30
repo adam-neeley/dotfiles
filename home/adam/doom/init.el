@@ -11,7 +11,7 @@
        :ui
        ;;deft              ; notational velocity for Emacs
        doom              ; what makes DOOM look the way it does
-       ;; doom-dashboard    ; a nifty splash screen for Emacs
+       doom-dashboard    ; a nifty splash screen for Emacs
        ;;doom-quit         ; DOOM quit-message prompts when you quit Emacs
        (emoji +unicode)  ; 🙂
        hl-todo           ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
@@ -23,9 +23,9 @@
        nav-flash         ; blink cursor line after big motions
        ;; neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       ;;tabs              ; a tab bar for Emacs
-       treemacs          ; a project drawer, like neotree but cooler
+       (popup +all +defaults)   ; tame sudden yet inevitable temporary windows
+       tabs              ; a tab bar for Emacs
+       (treemacs +lsp)          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        (vc-gutter +diff-hl +pretty) ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
@@ -36,7 +36,7 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format +onsave)  ; automated prettiness
+       (format +lsp +onsave)  ; automated prettiness
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors
        ;;objed             ; text object editing for the innocent
@@ -46,7 +46,7 @@
        word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       (dired +icons)             ; making dired pretty [functional]
+       (dired +icons +dirvish)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        (ibuffer +icons)         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
@@ -71,10 +71,10 @@
        direnv
        ;;docker
        editorconfig      ; let someone else argue about tabs vs spaces
-       ein               ; tame Jupyter notebooks with emacs
+       ;; ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)
                                         ; run code, run (also, repls)
-       ;;gist              ; interacting with github gists
+       gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        (lsp +peek -eglot)               ; M-x vscode
        magit             ; a git porcelain for Emacs
@@ -82,7 +82,7 @@
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       ;;taskrunner        ; taskrunner for all your projects
+       taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        (tree-sitter)       ; syntax and parsing, sitting in a tree...
@@ -164,7 +164,7 @@
        :app
        calendar
        ;;emms
-       ;; everywhere        ; *leave* Emacs!? You must be joking
+       ;;everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
