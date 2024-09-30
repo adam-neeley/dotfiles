@@ -1,7 +1,17 @@
 { inputs, config, lib, pkgs, ... }:
 
 with lib; {
-  xdg.configFile.git = { # cfg.doom.copyConfig {
+  programs = {
+    ripgrep.enable = true;
+
+    git = {
+      enable = true;
+      userName = "monadam";
+      userEmail = "aneeley@gmail.com";
+    };
+  };
+
+  xdg.configFile.git = {
     source = ./git;
     recursive = true;
   };

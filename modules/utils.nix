@@ -11,17 +11,4 @@
     sutils
     inputs.nix-search.packages.${system}.default
   ];
-
-  home-manager.users.adam = {
-
-    programs = {
-      ripgrep.enable = true;
-
-      git = {
-        enable = true;
-        userName = "monadam";
-        userEmail = "aneeley@gmail.com";
-      };
-    };
-  };
 }
