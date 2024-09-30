@@ -17,11 +17,11 @@
     programs = {
       ripgrep.enable = true;
 
-      # git = {
-      #   enable = true;
-      #   userName = "adam";
-      #   userEmail = "aneeley@gmail.com";
-      # };
+      git = {
+        enable = true;
+        userName = "monadam";
+        userEmail = "aneeley@gmail.com";
+      };
     };
   };
 }

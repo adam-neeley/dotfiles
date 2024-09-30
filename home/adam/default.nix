@@ -1,6 +1,7 @@
 { pkgs, lib, inputs, ... }: {
 
-  imports = [ ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ];
+  imports =
+    [ ./git.nix ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ];
 
   config = {
 
