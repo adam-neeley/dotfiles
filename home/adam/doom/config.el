@@ -55,9 +55,8 @@
        org-agenda-files (apply 'append
                                (mapcar
                                 (lambda (directory)
-                                  (directory-files-recursively
-                                   directory org-agenda-file-regexp))
-                                '("~/docs/org/" "~/school/humboldt/" "~/dotfiles/")))
+                                  (directory-files-recursively directory org-agenda-file-regexp))
+                                '("~/docs/org/" "~/school/" "~/dotfiles/")))
        org-startup-with-latex-preview 't
        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "INTR(i)" "DONE(d)"))
        org-agenda-with-colors 't
@@ -116,3 +115,6 @@
  projectile-sort-order 'recently-active
  projectile-project-search-path '("/home/adam/code/" "/home/adam/school/")
  savehist-autosave-interval 10)
+
+;; auto-load
+(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
