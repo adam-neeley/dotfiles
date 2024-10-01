@@ -25,3 +25,7 @@
                     :major-modes '(nix-mode)
                     :priority 0
                     :server-id 'nixd)))
+
+;; python
+
+(setq-hook! 'python-mode-hook +format-with "black")

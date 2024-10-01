@@ -31,8 +31,9 @@ in {
       cmake-language-server
 
       # python
-      python311Packages.pip
       python311
+      python311Packages.pip
+      python311Packages.black
 
       # ruby
       ruby
