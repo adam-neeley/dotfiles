@@ -27,5 +27,4 @@
                     :server-id 'nixd)))
 
 ;; python
-
-(setq-hook! 'python-mode-hook +format-with "black")
+(setq-hook! 'python-mode-hook +format-with 'black)
