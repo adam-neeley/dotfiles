@@ -6,8 +6,11 @@
     nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    agenix.url = "github:ryantm/agenix";
 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -41,7 +44,7 @@
 
   };
 
-  outputs = { self, nix-search, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, agenix, nixpkgs, home-manager, ... }@inputs:
     let
       pkgs = import nixpkgs { config.allowUnfree = true; };
       lib = import ./lib {
@@ -71,6 +74,7 @@
             { nixpkgs.config.allowUnfree = true; }
             inputs.nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
+            agenix.nixosModules.default
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };
@@ -86,7 +90,7 @@
       };
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
-          packages = [ ];
+          packages = [ agenix.packages.x86_64-linux.default ];
           inherit system;
         };
       });
