@@ -12,6 +12,7 @@ in rec {
         then nameValuePair n (fn path)
         else if v == "regular" &&
                 n != "default.nix" &&
+                n != "secrets.nix" &&
                 n != "flake.nix" &&
                 hasSuffix ".nix" n
         then nameValuePair (removeSuffix ".nix" n) (fn path)
@@ -33,6 +34,7 @@ in rec {
         then nameValuePair n (mapModulesRec path fn)
         else if v == "regular" &&
                 n != "default.nix" &&
+                n != "secrets.nix" &&
                 n != "flake.nix" &&
                 hasSuffix ".nix" n
         then nameValuePair (removeSuffix ".nix" n) (fn path)

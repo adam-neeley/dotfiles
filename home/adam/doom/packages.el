@@ -4,3 +4,4 @@
 (package! deno-fmt)
 (package! gameoflife)
 (package! sudoku)
+(package! agenix)
