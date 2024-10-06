@@ -23,7 +23,6 @@ in {
         package = (pkgs.git.override { guiSupport = true; });
       };
 
-      # environment.systemPackages = lib.mkIf cfg.git.enable
-      #   [ pkgs.github-cli ];
+      environment.systemPackages = [(lib.mkIf cfg.git.enable pkgs.github-cli )];
     };
 }
