@@ -4,50 +4,26 @@ let cfg = config.modules.code;
 in {
 
   options.modules.code.enable = lib.mkEnableOption false;
-
-  config = lib.mkIf cfg.enable {
-    programs.direnv.enable = true;
-
-    programs.nix-ld = {
-      enable = true; # run unpatched binaries #
-      package = pkgs.nix-ld-rs;
-    };
-
-    environment.systemPackages = with pkgs; [
-      # git
-      (pkgs.git.override { guiSupport = true; })
-      github-cli
-
-      # c
-      clang
-      clang-tools
-      glibc
-      cmake
-      ccls # lsp
-      libcxx
-      gcc
-      libtool
-      libclang
-      cmake-language-server
-
-      # python
-      python311
-      python311Packages.pip
-      python311Packages.black
-
-      # ruby
-      ruby
-
-      # latex
-      texlive.combined.scheme-medium
-      # texlive.combined.scheme-full
-      # texlab
-
-      # R
-      R
-
-      # lisp
-      sbcl
-    ];
+  options.modules.code.runBinaries = lib.mkEnableOption true;
+  options.modules.code.git = {
+    enable = lib.mkEnableOption true;
   };
+
+  config = lib.mkIf cfg.enable
+    {
+      programs.direnv.enable = true;
+
+      programs.nix-ld = lib.mkIf cfg.runBinaries {
+        enable = true; # run unpatched binaries #
+        package = pkgs.nix-ld-rs;
+      };
+
+      programs.git = lib.mkIf cfg.git.enable {
+        enable = true;
+        package = (pkgs.git.override { guiSupport = true; });
+      };
+
+      # environment.systemPackages = lib.mkIf cfg.git.enable
+      #   [ pkgs.github-cli ];
+    };
 }
