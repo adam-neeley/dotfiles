@@ -3,7 +3,6 @@
 with builtins; {
 
   config = {
-
     modules = {
       term.foot.enable = true;
       term.kitty.enable = false;
@@ -104,7 +103,7 @@ with builtins; {
 
     system.nixos.label = (builtins.concatStringsSep "-"
       (builtins.sort (x: y: x < y) config.system.nixos.tags))
-      + config.system.nixos.version;
+    + config.system.nixos.version;
 
     networking = {
       networkmanager.enable = true;
@@ -114,6 +113,7 @@ with builtins; {
         192.168.1.110 nexus.home
         192.168.1.120 carbon.home
         192.168.1.130 iron.home
+        71.19.146.26  tornado
       '';
     };
 
@@ -141,7 +141,7 @@ with builtins; {
       users = {
         adam = {
           description = "monadam";
-          extraGroups = [ "networkmanager" "wheel" "audio" ];
+          extraGroups = [ "networkmanager" "wheel" "audio" "davfs2" ];
           initialHashedPassword =
             "$y$j9T$42f.KUzl/ncm8ttyPcbwO1$sVm14SGGhAky1aYpGKKmvGKwG7udbyfDmvzitOk3vO0";
           isNormalUser = true;
@@ -168,18 +168,20 @@ with builtins; {
 
     system.stateVersion = "23.05";
 
-    user = let
-      user = builtins.getEnv "USER";
-      name = if elem user [ "" "root" ] then "adam" else user;
-    in {
-      inherit name;
-      description = "The primary user";
-      extraGroups = [ "wheel" ];
-      isNormalUser = true;
-      home = "/home/${name}";
-      group = "users";
-      uid = 1000;
-    };
+    user =
+      let
+        user = builtins.getEnv "USER";
+        name = if elem user [ "" "root" ] then "adam" else user;
+      in
+      {
+        inherit name;
+        description = "The primary user";
+        extraGroups = [ "wheel" ];
+        isNormalUser = true;
+        home = "/home/${name}";
+        group = "users";
+        uid = 1000;
+      };
 
     home-manager.backupFileExtension = "bak";
 
