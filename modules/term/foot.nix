@@ -5,12 +5,17 @@ in {
   options.modules.term.foot.enable = lib.mkEnableOption false;
 
   config = lib.mkIf cfg.enable {
+    # programs.foot = {
+    #   enable = true;
+    #   theme = "dracula";
+    # };
     home-manager.users.adam.programs.foot = {
       enable = true;
       server.enable = true;
       settings = {
         # see Defaults at bottom
         main = {
+          term = "zsh";
           font = "monospace:size=12";
           # font-size-adjustment = 2.0;
         };
