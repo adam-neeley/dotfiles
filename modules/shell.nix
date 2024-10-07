@@ -9,10 +9,11 @@ in {
     environment.systemPackages = with pkgs; [ pfetch neofetch figlet ];
 
     programs.fish.enable = true;
+    programs.zsh.enable = true;
     programs.starship.enable = true;
 
     environment.shells = [ pkgs.fish ];
-    users.users.adam.shell = pkgs.fish;
+    users.users.adam.shell = pkgs.zsh;
     home-manager.users.adam.programs = {
       eza = {
         enable = true;
