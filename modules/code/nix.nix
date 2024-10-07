@@ -8,6 +8,7 @@ in {
       nixd # lsp
       nixpkgs-fmt
       nixfmt
+      nil
     ];
   };
 }

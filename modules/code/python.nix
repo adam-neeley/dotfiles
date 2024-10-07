@@ -8,6 +8,8 @@ in {
       python311
       python311Packages.pip
       python311Packages.black
+      # taplo
+      python3Packages.python-lsp-server
     ];
   };
 }

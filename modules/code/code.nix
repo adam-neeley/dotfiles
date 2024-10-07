@@ -3,7 +3,7 @@
 let cfg = config.modules.code;
 in {
 
-  options.modules.code.enable = lib.mkEnableOption false;
+  options.modules.code.enable = lib.mkEnableOption true;
   options.modules.code.runBinaries = lib.mkEnableOption true;
   options.modules.code.git = {
     enable = lib.mkEnableOption true;
