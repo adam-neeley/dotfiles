@@ -16,12 +16,13 @@
       homeDirectory = "/home/adam";
       sessionPath = [ "$HOME/.local/bin/" ];
 
-      sessionVariables = {
+      sessionVariables = rec {
         SSH_ASKPASS = lib.getExe pkgs.lxqt.lxqt-openssh-askpass;
         BROWSER = "qutebrowser";
         EDITOR = "emacsclient --no-window-system";
         VISUAL = "emacsclient --create-frame";
-        DOTFILES = "/home/adam/dotfiles";
+        DOTFILESDIR = "/home/adam/dotfiles";
+        # DOOMDIR = "${DOTFILESDIR}/home/adam/doom";
         NIX_ALLOW_UNFREE = 1;
       };
       stateVersion = "23.05";

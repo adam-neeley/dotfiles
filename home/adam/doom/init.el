@@ -24,7 +24,7 @@
        ;; neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
        (popup +all +defaults)   ; tame sudden yet inevitable temporary windows
-       tabs              ; a tab bar for Emacs
+       ;; tabs              ; a tab bar for Emacs
        (treemacs +lsp)          ; a project drawer, like neotree but cooler
        unicode           ; extended unicode support for various languages
        (vc-gutter +diff-hl +pretty) ; vcs diff in the fringe
@@ -74,7 +74,6 @@
        ;; ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)
                                         ; run code, run (also, repls)
-       gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        (lsp +peek -eglot)               ; M-x vscode
        magit             ; a git porcelain for Emacs
@@ -82,7 +81,6 @@
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
        ;;prodigy           ; FIXME managing external services & code builders
-       taskrunner        ; taskrunner for all your projects
        ;;terraform         ; infrastructure as code
        ;;tmux              ; an API for interacting with tmux
        (tree-sitter)       ; syntax and parsing, sitting in a tree...

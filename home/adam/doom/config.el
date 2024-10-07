@@ -1,11 +1,8 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; includes
-;; keybinds
-(load! "keybinds")
-(load! "lang")
-
 ;; personal info
+
+;; (setq doom-user-dir "$DOOMDIR")
 
 (setq user-full-name "monadam"
       user-login-name "adam"
@@ -14,8 +11,8 @@
 ;; ui
 (setq!
  ;; doom-theme 'doom-bluloco-dark
- ;; doom-theme 'doom-homage-black
- doom-theme 'doom-badger
+ doom-theme 'doom-homage-black
+ ;; doom-theme 'doom-badger
  ;; doom-theme 'doom-feather-dark
  ;; doom-theme 'modus-vivendi
  ;; doom-theme 'doom-opera
@@ -52,38 +49,47 @@
 
 ;; org-mode
 (setq! org-directory "~/docs/org/"
-       org-agenda-files (apply 'append
-                               (mapcar
-                                (lambda (directory)
-                                  (directory-files-recursively directory org-agenda-file-regexp))
-                                '("~/docs/org/" "~/school/" "~/dotfiles/")))
+       ;; TODO fix recursive file search:
+       ;; org-agenda-files (apply 'append
+       ;;                         (mapcar
+       ;;                          (lambda (directory)
+       ;;                            (directory-files-recursively directory org-agenda-file-regexp))
+       ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
        org-startup-with-latex-preview 't
        ;; org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "INTR(i)" "DONE(d)"))
        org-agenda-with-colors 't
        org-hide-macro-markers 't
-       org-capture-templates '(("t" "Personal todo" entry
-                                (file+headline +org-capture-todo-file "Inbox")
+       org-mobile-directory "~/docs/org/davfs/"
+       org-mobile-inbox-for-pull "~/docs/org/mobile/"
+       org-capture-templates '(("t" "personal todo" entry
+                                (file +org-capture-todo-file)
                                 "* [ ] %?\n%i\n" :prepend t)
-                               ("n" "Personal notes" entry
-                                (file+headline +org-capture-notes-file "Inbox")
+                               ("n" "personal notes" entry
+                                (file+headline +org-capture-notes-file "inbox")
                                 "* %u %?\n%i\n" :prepend t)
-                               ("j" "Journal" entry
+                               ("s" "system todo" entry
+                                (file+headline "~/docs/org/system.org" "inbox")
+                                "* TODO %?\n")
+                               ("j" "journal" entry
                                 (file+olp+datetree +org-capture-journal-file)
-                                "* %U %?\n%i\n" :prepend t)
-                               ("p" "Templates for projects")
-                               ("pt" "Project-local todo" entry
-                                (file+headline +org-capture-project-todo-file "Inbox")
+                                "* %u %?\n%i\n" :prepend t)
+                               ("p" "templates for projects")
+                               ("pi" "project IDEA" entry
+                                (file+headline "~/docs/org/projects.org" "ideas")
+                                "* IDEA %?\n%i\n" :prepend t)
+                               ("pt" "project-local TODO" entry
+                                (file+headline +org-capture-project-todo-file "inbox")
                                 "* TODO %?\n%i\n" :prepend t)
-                               ("pn" "Project-local notes" entry
-                                (file+headline +org-capture-project-notes-file "Inbox")
-                                "* %U %?\n%i\n" :prepend t)
-                               ("pc" "Project-local changelog" entry
-                                (file+headline +org-capture-project-changelog-file "Unreleased")
-                                "* %U %?\n%i\n" :prepend t)
-                               ("o" "Centralized templates for projects")
-                               ("ot" "Project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "Tasks" :prepend nil)
-                               ("on" "Project notes" entry #'+org-capture-central-project-notes-file "* %U %?\n %i\n" :heading "Notes" :prepend t)
-                               ("oc" "Project changelog" entry #'+org-capture-central-project-changelog-file "* %U %?\n %i\n" :heading "Changelog" :prepend t))
+                               ("pn" "project-local notes" entry
+                                (file+headline +org-capture-project-notes-file "inbox")
+                                "* %u %?\n%i\n" :prepend t)
+                               ("pc" "project-local changelog" entry
+                                (file+headline +org-capture-project-changelog-file "unreleased")
+                                "* %u %?\n%i\n" :prepend t)
+                               ("o" "centralized templates for projects")
+                               ("ot" "project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "tasks" :prepend nil)
+                               ("on" "project notes" entry #'+org-capture-central-project-notes-file "* %u %?\n %i\n" :heading "notes" :prepend t)
+                               ("oc" "project changelog" entry #'+org-capture-central-project-changelog-file "* %u %?\n %i\n" :heading "changelog" :prepend t))
        org-hide-emphasis-markers 't)
 
 (defvar my-org-hidden-keywords
@@ -141,3 +147,9 @@
 
 ;; auto-load
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+
+
+;; includes
+;; keybinds
+(load! "keybinds")
+(load! "lang")
