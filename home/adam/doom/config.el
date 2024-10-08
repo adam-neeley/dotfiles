@@ -61,22 +61,25 @@
        org-hide-macro-markers 't
        org-mobile-directory "~/docs/org/davfs/"
        org-mobile-inbox-for-pull "~/docs/org/mobile/"
-       org-capture-templates '(("t" "personal todo" entry
+       org-capture-templates '(("t" "todo" entry
                                 (file +org-capture-todo-file)
                                 "* [ ] %?\n%i\n" :prepend t)
-                               ("n" "personal notes" entry
-                                (file+headline +org-capture-notes-file "inbox")
+                               ("s" "school" entry
+                                (file "~/docs/org/school.org")
                                 "* %u %?\n%i\n" :prepend t)
-                               ("s" "system todo" entry
-                                (file+headline "~/docs/org/system.org" "inbox")
+                               ("n" "note" entry
+                                (file +org-capture-notes-file)
+                                "* %u %?\n%i\n" :prepend t)
+                               ("d" "dotfiles todo" entry
+                                (file "~/docs/org/dotfiles.org")
                                 "* TODO %?\n")
                                ("j" "journal" entry
                                 (file+olp+datetree +org-capture-journal-file)
                                 "* %u %?\n%i\n" :prepend t)
-                               ("p" "templates for projects")
-                               ("pi" "project IDEA" entry
-                                (file+headline "~/docs/org/projects.org" "ideas")
+                               ("i" "idea" entry
+                                (file "~/docs/org/ideas.org")
                                 "* IDEA %?\n%i\n" :prepend t)
+                               ("p" "templates for projects")
                                ("pt" "project-local TODO" entry
                                 (file+headline +org-capture-project-todo-file "inbox")
                                 "* TODO %?\n%i\n" :prepend t)
