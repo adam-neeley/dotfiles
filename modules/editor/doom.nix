@@ -41,6 +41,9 @@ in {
       fava
       # :lang nix
       age
+      # vterm
+      cmake
+      libtool
     ];
   };
 }
