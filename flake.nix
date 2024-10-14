@@ -3,22 +3,25 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixpkgs-my.url = "path:/home/adam/code/nixpkgs";
+    my-nixpkgs.url = "path:/home/adam/code/nixpkgs";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    agenix.url = "github:ryantm/agenix";
-
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # secrets
+
+    agenix.url = "github:ryantm/agenix";
+
     nix-search.url = "github:diamondburned/nix-search";
 
-    hyprland.url =
-      "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
+    # hyprland
+
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
 
     hyprland-hy3.url = "github:outfoxxed/hy3?ref=hl0.41.2";
     hyprland-hy3.inputs.hyprland.follows = "hyprland";
@@ -35,16 +38,26 @@
 
     hyprlock.url = "github:hyprwm/hyprlock";
 
+    # emacs
+
     emacs-overlay.url = "github:nix-community/emacs-overlay";
     emacs-overlay.inputs.nixpkgs-stable.follows = "nixpkgs";
     emacs-overlay.inputs.nixpkgs.follows = "nixpkgs";
+
+    # vim
 
     nixvim.url = "github:nix-community/nixvim/nixos-24.05";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
-  outputs = { self, agenix, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    { self
+    , agenix
+    , nixpkgs
+    , home-manager
+    , ...
+    }@inputs:
     let
       pkgs = import nixpkgs { config.allowUnfree = true; };
       lib = import ./lib {
@@ -53,11 +66,11 @@
         inherit pkgs;
       };
       supportedSystems = [ "x86_64-linux" ];
-      forEachSupportedSystem = f:
-        nixpkgs.lib.genAttrs supportedSystems
-        (system: f { pkgs = import nixpkgs { inherit system; }; });
+      forEachSupportedSystem =
+        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations = {
 
         iron = nixpkgs.lib.nixosSystem rec {
@@ -72,12 +85,14 @@
           modules = (lib.mapModulesRec' ./modules lib.id) ++ [
             ./host/iron/default.nix
             { nixpkgs.config.allowUnfree = true; }
-            inputs.nixvim.nixosModules.nixvim
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
+            inputs.nixvim.nixosModules.nixvim
             {
               home-manager = {
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
                 backupFileExtension = "bak";
                 verbose = true;
                 useGlobalPkgs = true;
@@ -88,11 +103,14 @@
           ];
         };
       };
-      devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell {
-          packages = [ agenix.packages.x86_64-linux.default ];
-          inherit system;
-        };
-      });
+      devShells = forEachSupportedSystem (
+        { pkgs }:
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [ nixpkgs-fmt agenix.packages.x86_64-linux.default ];
+            inherit system;
+          };
+        }
+      );
     };
 }
