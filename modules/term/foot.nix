@@ -15,7 +15,7 @@ in {
       settings = {
         # see Defaults at bottom
         main = {
-          term = "zsh";
+          shell = "zsh";
           font = "monospace:size=12";
           # font-size-adjustment = 2.0;
         };
