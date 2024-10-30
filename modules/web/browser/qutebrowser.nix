@@ -27,19 +27,21 @@ in {
           title.format = "{current_title} {audio}";
           position = "left";
           show = "switching";
-          # show = "always";
           width = 240;
         };
-        colors.tabs.bar.bg = "#111";
+        colors = {
+          completion.item.selected.bg = "#0099cc";
+          tabs.bar.bg = "#111";
+          hints = {
+            bg = "#000000";
+            fg = "#ffff00";
+          };
+        };
 
         # hints
         hints = {
           chars = "uhetonasmkwj";
           border = "solid 1px #ffff0066";
-        };
-        colors.hints = {
-          bg = "#000000";
-          fg = "#ffff00";
         };
       };
       keyBindings = {
@@ -71,6 +73,7 @@ in {
         nw = "https://nixos.wiki/index.php?search={}";
         yt = "https://youtube.com/search?q={}";
         az = "https://amazon.com/s?k={}";
+        py = "https://docs.python.org/3/search.html?q={}";
         hm =
           "https://github.com/search?q=repo%3Anix-community%2Fhome-manager%20{}";
       };

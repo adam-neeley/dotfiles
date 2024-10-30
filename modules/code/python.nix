@@ -8,6 +8,7 @@ in {
       python311
       python311Packages.pip
       python311Packages.black
+      basedpyright
       # taplo
       python3Packages.python-lsp-server
     ];

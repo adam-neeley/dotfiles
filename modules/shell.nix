@@ -6,10 +6,11 @@ in {
   options.modules.shell.enable = mkEnableOption false;
   config = mkIf cfg.enable {
 
-    environment.systemPackages = with pkgs; [ pfetch neofetch figlet ];
-
     programs.fish.enable = true;
-    programs.zsh.enable = true;
+    programs.zsh = {
+      interactiveShellInit = "fish";
+      enable = true;
+    };
     programs.starship.enable = true;
 
     environment.shells = [ pkgs.fish ];

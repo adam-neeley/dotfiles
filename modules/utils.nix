@@ -2,13 +2,20 @@
 
 {
   environment.systemPackages = with pkgs; [
-    tldr # man
+    tldr # man for noobs
     fd # fast find
-    btop # process manager
-    # nvimpager
+    nvimpager
     bat
     unar # unarchive .zip etc
     sutils
+    # system info
+    btop # process manager
+    pfetch
+    neofetch
+    figlet # ascii art text
     inputs.nix-search.packages.${system}.default
   ];
+
+  environment.sessionVariables = { PAGER = "nvimpager"; };
+
 }

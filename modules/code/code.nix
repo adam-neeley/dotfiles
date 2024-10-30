@@ -9,20 +9,20 @@ in {
     enable = lib.mkEnableOption true;
   };
 
-  config = lib.mkIf cfg.enable
+  config =
     {
       programs.direnv.enable = true;
 
-      programs.nix-ld = lib.mkIf cfg.runBinaries {
+      programs.nix-ld = {
         enable = true; # run unpatched binaries #
         package = pkgs.nix-ld-rs;
       };
 
-      programs.git = lib.mkIf cfg.git.enable {
+      programs.git = {
         enable = true;
         package = (pkgs.git.override { guiSupport = true; });
       };
 
-      environment.systemPackages = [(lib.mkIf cfg.git.enable pkgs.github-cli )];
+      environment.systemPackages = [(lib.mkIf cfg.git.enable pkgs.github-cli ) ];
     };
 }

@@ -1,15 +1,21 @@
 { config, lib, pkgs, ... }:
 
-let cfg = config.modules.code.c;
-in {
-  options.modules.code.c.enable = lib.mkEnableOption true;
-  config = lib.mkIf cfg.enable {
+{
+  config = {
     environment.systemPackages = with pkgs; [
       clang
       clang-tools
+      # C++
+      # Clangd from clang-tools must come first.
+      # (clang-tools.override {
+      #   llvmPackages = llvmPackages_16;
+      #   enableLibcxx = false;
+      # })
+      # llvmPackages_16.libclang
       glibc
       cmake
       libcxx
+      ccls
       gcc
       libtool
       libclang

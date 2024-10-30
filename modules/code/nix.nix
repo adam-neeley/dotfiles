@@ -1,14 +1,21 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
-let cfg = config.modules.code.nix;
-in {
-  options.modules.code.nix.enable = lib.mkEnableOption true;
-  config = lib.mkIf cfg.enable {
+let
+  cfg = config.modules.code.nix;
+in
+{
+  config = {
     environment.systemPackages = with pkgs; [
       nixd # lsp
       nixpkgs-fmt
-      nixfmt
-      nil
+      nixfmt-classic
+      nixfmt-rfc-style
+      # nil
     ];
   };
 }
