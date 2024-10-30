@@ -28,11 +28,13 @@
 
 ;; python
 (setq-hook! 'python-mode-hook +format-with 'black)
+;; (setq lsp-pyright-langserver-command "basedpyright")
+
 
 ;; elisp
-(with-eval-after-load 'lsp-mode
-  (lsp-register-client
-   (make-lsp-client :new-connection (lsp-stdio-connection "ellsp")
-                    :major-modes '(emacs-lisp-mode)
-                    :priority 0
-                    :server-id 'ellsp)))
+;; (with-eval-after-load 'lsp-mode
+;;   (lsp-register-client
+;;    (make-lsp-client :new-connection (lsp-stdio-connection "ellsp")
+;;                     :major-modes '(emacs-lisp-mode)
+;;                     :priority 0
+;;                     :server-id 'ellsp)))

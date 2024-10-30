@@ -3,15 +3,10 @@
 {
   home.packages = with pkgs; [ hyprpaper libnotify fuzzel waylock ];
 
-  programs.swaylock = {
-    enable = true;
-    settings = {
-      color = "000000";
-      line-color = "eeeeee";
-    };
-  };
-
   programs.waybar = {
+    /*
+      waybar
+    */
     enable = true;
     systemd.enable = false;
     settings = {
@@ -19,19 +14,21 @@
         reload_style_on_change = true;
         layer = "bottom";
         position = "top";
-        height = 20;
+        height = 10;
         output = [ "eDP-1" ];
         "clock" = {
           format = "{:%a %b %d  %H:%M}";
-          # format-alt = "{:%a, %d. %b  %H:%M}";
         };
         modules-left = [ "wlr/taskbar" ];
         modules-center = [ "clock" ];
         modules-right = [ "mpd" "bluetooth" "battery" ];
       };
     };
-
   };
+
+  /*
+    configs
+  */
 
   xdg.configFile.hyprland = {
     source = ./hypr;
@@ -49,6 +46,9 @@
   };
 
   xdg.portal = {
+    /*
+      portal
+    */
     enable = true;
     xdgOpenUsePortal = true;
     config = {
@@ -73,29 +73,53 @@
     extraConfig = builtins.readFile ./hypr/hyprland.conf;
   };
 
-  services.avizo.enable = true;
-
-  programs.hyprlock.enable = true;
+  services.avizo =
+    {
+      /*
+        brightness & volume
+      */
+      enable = true;
+    };
 
   services.mako = {
+    /*
+      notifications
+    */
     enable = true;
     defaultTimeout = 3000;
     font = "sans-serif 14";
     width = 400;
     height = 200;
     margin = "20";
-    padding = "10";
+    padding = "5";
   };
 
   services.hyprpaper = {
+    /*
+      wallpaper
+    */
     enable = true;
     settings = {
       ipc = "on";
       splash = false;
       splash_offset = 2.0;
 
-      preload = [ "$HOME/dotfiles/media/wallpaper/sakura.jpg" ];
-      wallpaper = [ ",$HOME/dotfiles/media/wallpaper/sakura.jpg" ];
+      preload = [ "/home/adam/dotfiles/media/wallpaper/sakura.jpg" ];
+      wallpaper = [ ",/home/adam/dotfiles/media/wallpaper/sakura.jpg" ];
     };
   };
+
+  /*
+    Lock
+  */
+
+  programs.hyprlock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "000000";
+      line-color = "888888";
+    };
+  };
+
 }

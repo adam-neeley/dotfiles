@@ -8,10 +8,10 @@
        ;;                          (lambda (directory)
        ;;                            (directory-files-recursively directory org-agenda-file-regexp))
        ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
-       org-startup-with-latex-preview 't
+       org-startup-with-latex-preview t
        org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "SKIP(s)" "INTR(i)" "DONE(d)"))
-       org-agenda-with-colors 't
-       org-hide-macro-markers 't
+       org-agenda-with-colors t
+       org-hide-macro-markers t
        org-mobile-directory "~/docs/org/davfs/"
        org-mobile-inbox-for-pull "~/docs/org/mobile/"
        org-capture-templates '(("t" "todo" entry
@@ -46,7 +46,7 @@
                                ("ot" "project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "tasks" :prepend nil)
                                ("on" "project notes" entry #'+org-capture-central-project-notes-file "* %u %?\n %i\n" :heading "notes" :prepend t)
                                ("oc" "project changelog" entry #'+org-capture-central-project-changelog-file "* %u %?\n %i\n" :heading "changelog" :prepend t))
-       org-hide-emphasis-markers 't
+       org-hide-emphasis-markers t
        org-format-latex-options (plist-put org-format-latex-options :scale 2))
 
 (defvar my-org-hidden-keywords
@@ -80,10 +80,10 @@
              (org-babel-process-file-name in-file))
      "")))
 
-(custom-set-faces!
-  nil
-  '(org-block :inherit fixed-pitch)
-  '(org-code :inherit shadow fixed-pitch)
-  '(org-document-info :foreground "dark orange")
-  '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
-  '(org-document-info-keyword :inherit shadow fixed-pitch))
+;; (custom-set-faces!
+;;   nil
+;;   '(org-block :inherit fixed-pitch)
+;;   '(org-code :inherit shadow fixed-pitch)
+;;   '(org-document-info :foreground "dark orange")
+;;   '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
+;;   '(org-document-info-keyword :inherit shadow fixed-pitch))

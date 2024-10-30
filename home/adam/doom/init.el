@@ -59,14 +59,14 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       (syntax +child-frame +flymake) ;tasing you for every semicolon you forget
+       (syntax -child-frame +flymake) ;tasing you for every semicolon you forget
        (spell +flyspell) ; tasing you for misspelling mispelling
        grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;ansible
-       biblio            ; Writes a PhD for you (citation needed)
-       collab            ; buffers with friends
+       ;; biblio            ; Writes a PhD for you (citation needed)
+       ;; collab            ; buffers with friends
        (debugger +lsp)          ; stepping through code, to help you add bugs
        direnv
        ;;docker
@@ -95,8 +95,8 @@
        ;;beancount         ; mind the GAAP
        (cc +tree-sitter)         ; C > C++ == 1
        ;;clojure           ; java with a lisp
-       common-lisp       ; if you've seen one lisp, you've seen them all
-       coq               ; proofs-as-programs
+       ;; common-lisp       ; if you've seen one lisp, you've seen them all
+       ;; coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
        data              ; config/data formats
@@ -106,7 +106,7 @@
        ;;elm               ; care for a cup of TEA?
        (emacs-lisp)        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
-       (ess +stan +tree-sitter)               ; emacs speaks statistics
+       ;; (ess +stan +tree-sitter)               ; emacs speaks statistics
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
        ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
@@ -115,7 +115,7 @@
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
+       ;; (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp)              ; At least it ain't XML
@@ -131,18 +131,18 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +present +pretty -contacts)               ; organize your plain life in plain text
+       (org -present +pretty -contacts)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
-       (purescript +lsp)        ; javascript, but functional
-       (python +lsp +tree-sitter)            ; beautiful is better than ugly
+       ;; (purescript +lsp)        ; javascript, but functional
+       (python -conda -pyright +lsp +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       (ruby +lsp)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       ;; (ruby +lsp)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       ;; (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        (sh +fish)                ; she sells {ba,z,fi}sh shells on the C xor
@@ -151,7 +151,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +tree-sitter +lsp)               ; the tubes
-       (yaml +lsp)              ; JSON, but readable
+       ;; (yaml +lsp)              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email

@@ -4,28 +4,24 @@
 
 ;; (setq doom-user-dir "$DOOMDIR")
 
-(setq user-full-name "monadam"
+(setq user-full-name "Adam Neeley"
       user-login-name "adam"
-      user-mail-address "aneeley@gmail.com")
+      user-mail-address "adam.t.neeley@protonmail.com")
+
+(load! "appearance")
 
 ;; ui
+
 (setq!
- ;; doom-theme 'doom-bluloco-dark
- doom-theme 'doom-homage-black
- ;; doom-theme 'doom-badger
- ;; doom-theme 'doom-feather-dark
- ;; doom-theme 'modus-vivendi
- ;; doom-theme 'doom-opera
- fancy-splash-image (concat doom-user-dir "splash.png")
-
- company-idle-delay 0
- company-tooltip-minimum-width 10
  split-width-threshold nil
- preview-scale-function 2.5
- lsp-ui-sideline-diagnostic-max-lines 2
+ preview-scale-function 2
+ ;; lsp-ui-sideline-diagnostic-max-lines 2
  line-spacing 3
- display-line-numbers-type nil)
+ display-line-numbers-type t)
 
+(setq!
+ company-idle-delay 0
+ company-tooltip-minimum-width 10)
 
 
 ;; fonts
@@ -48,10 +44,13 @@
 
 ;; projectile
 (setq!
- projectile-auto-discover 't
+ projectile-auto-discover t
  projectile-sort-order 'recently-active
  projectile-project-search-path '("~/docs/" "~/code/" "~/school/")
+ projectile-switch-project-action #'projectile-dired
  savehist-autosave-interval 10)
+
+(setq! dired-free-space-program)
 
 ;; auto-load
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
@@ -60,5 +59,5 @@
 (load! "keybinds")
 (load! "org-mode")
 (load! "lang")
-(if (file-exists-p "gptel.el")
-    (load! "gptel.el"))
+;; (if (file-exists-p "gptel.el")
+;;     (load! "gptel"))

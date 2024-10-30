@@ -7,8 +7,8 @@ with lib; {
     recursive = true;
   };
 
-  age.secrets.gptel.file = ../../modules/secrets/gptel.age;
-  age.secrets.gptel.path = "/home/adam/.config/doom/gptel.el";
+  # age.secrets.gptel.file = ../../modules/secrets/gptel.age;
+  # age.secrets.gptel.path = "/home/adam/.config/doom/gptel.el";
 
   home.sessionPath = [ "$XDG_CONFIG_HOME/emacs/bin" ];
 
