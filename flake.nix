@@ -21,7 +21,8 @@
 
     # hyprland
 
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
+    hyprland.url =
+      "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=refs/tags/v0.41.2";
 
     hyprland-hy3.url = "github:outfoxxed/hy3?ref=hl0.41.2";
     hyprland-hy3.inputs.hyprland.follows = "hyprland";
@@ -51,13 +52,7 @@
 
   };
 
-  outputs =
-    { self
-    , agenix
-    , nixpkgs
-    , home-manager
-    , ...
-    }@inputs:
+  outputs = { self, agenix, nixpkgs, home-manager, ... }@inputs:
     let
       pkgs = import nixpkgs { config.allowUnfree = true; };
       lib = import ./lib {
@@ -66,11 +61,11 @@
         inherit pkgs;
       };
       supportedSystems = [ "x86_64-linux" ];
-      forEachSupportedSystem =
-        f: nixpkgs.lib.genAttrs supportedSystems (system: f { pkgs = import nixpkgs { inherit system; }; });
+      forEachSupportedSystem = f:
+        nixpkgs.lib.genAttrs supportedSystems
+        (system: f { pkgs = import nixpkgs { inherit system; }; });
       system = "x86_64-linux";
-    in
-    {
+    in {
       nixosConfigurations = {
 
         iron = nixpkgs.lib.nixosSystem rec {
@@ -90,9 +85,7 @@
             inputs.nixvim.nixosModules.nixvim
             {
               home-manager = {
-                extraSpecialArgs = {
-                  inherit inputs;
-                };
+                extraSpecialArgs = { inherit inputs; };
                 backupFileExtension = "bak";
                 verbose = true;
                 useGlobalPkgs = true;
@@ -103,14 +96,14 @@
           ];
         };
       };
-      devShells = forEachSupportedSystem (
-        { pkgs }:
-        {
-          default = pkgs.mkShell {
-            packages = with pkgs; [ nixpkgs-fmt agenix.packages.x86_64-linux.default ];
-            inherit system;
-          };
-        }
-      );
+      devShells = forEachSupportedSystem ({ pkgs }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            nixpkgs-fmt
+            agenix.packages.x86_64-linux.default
+          ];
+          inherit system;
+        };
+      });
     };
 }
