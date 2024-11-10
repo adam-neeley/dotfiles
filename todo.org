@@ -1,0 +1,24 @@
+#+title: todo
+* inbox
+** TODO pytest-dwim configure
+
+[[file:~/dotfiles/home/adam/doom/lang.el]]
+** doom
+*** STRT keybind
+**** spc spc
+execute extended command
+**** buffer
+***** next
+***** prev
+
+**** workspace
+***** SPC j
+prev workspace
+***** SPC k
+next workspace
+***** SPC h
+prev buffer
+***** SPC l
+next buffer
+** nixos
+*** use disko
