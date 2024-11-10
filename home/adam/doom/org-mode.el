@@ -9,11 +9,12 @@
        ;;                            (directory-files-recursively directory org-agenda-file-regexp))
        ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
        org-startup-with-latex-preview nil
-       org-todo-keywords '((sequence "TODO(t)" "DONE(d)" "NO(x)" "NOW(n)" "PROG(p)" "SKIP(s)" "INTR(i)"))
+       org-todo-keywords '((sequence "TODO(t)" "DONE(d)" "NO(n)" "PROG(p)" "SKIP(s)" "INTR(i)"))
        org-agenda-with-colors t
+       org-agenda-skip-scheduled-if-done t
        org-hide-macro-markers t
-       org-mobile-directory "~/docs/org/davfs/"
-       org-mobile-inbox-for-pull "~/docs/org/mobile/"
+       ;; org-mobile-directory "~/docs/org/davfs/"
+       ;; org-mobile-inbox-for-pull "~/docs/org/mobile/"
        org-capture-templates '(("t" "todo" entry
                                 (file +org-capture-todo-file)
                                 "* [ ] %?\n%i\n" :prepend t)

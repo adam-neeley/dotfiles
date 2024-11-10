@@ -1,4 +1,3 @@
-(package! gptel)
 (package! mips-mode)
 (package! go-mode)
 ;; (package! deno-fmt)
@@ -6,5 +5,8 @@
 (package! sudoku)
 (package! plantuml-mode)
 (package! agenix)
+
+;; ai
+(package! gpt-commit)
+(package! gptel)
 (package! tabnine)
-;; (package! ellsp :recipe :host github :repo "jcs090218/ellsp")

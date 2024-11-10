@@ -1,7 +1,7 @@
 (doom! :input
        :completion
        ;; (corfu +icons +orderless +dabbrev)
-       (company +tng -childframe)           ; the ultimate code completion backend
+       (company -tng +childframe)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -59,7 +59,7 @@
        vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       (syntax +icons -child-frame +flymake) ;tasing you for every semicolon you forget
+       ;;(syntax +icons -child-frame +flymake) ;tasing you for every semicolon you forget
        ;; (spell +flyspell) ; tasing you for misspelling mispelling
        ;; grammar           ; tasing grammar mistake every you make
 

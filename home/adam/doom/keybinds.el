@@ -5,35 +5,41 @@
       :g "C-s"      #'save-buffer
       :g "C-/"      #'comment-line)
 
+;; make
 (map! :leader
       :n "M R"      #'+make/run
       :n "M L"      #'+make/run-last)
 
-(map! :leader
-      :n "C M"      'gptel-menu
-      :n "C S"      'gptel-send)
+;; ai
+(map!
+ :n "C-S-c g m" 'gptel-menu
+ :n "C-S-c g s" 'gptel-send
+ :n "C-S-c t d" 'tabnine-chat-document-code
+ :n "C-S-c t e" 'tabnine-chat-explain-code
+ :n "C-S-c t c" 'tabnine-chat)
 
+;; customize
+(map!
+ "C-' f" 'customize-face
+ "C-' b" 'customize-browse
+ "C-' c" 'customize-changed
+ "C-' t t" 'customize-themes
+ "C-' t c" 'customize-create-theme
+ "C-' o" 'customize-option
+ "C-' O" 'customize-option-other-window)
 
-(map! :map 'tabnine-completion-map
-      "<tab>"  'tabnine-accept-completion
-      "TAB"  'tabnine-accept-completion
-      "M-f"  'tabnine-accept-completion-by-word
-      "M-<return>"  'tabnine-accept-completion-by-line
-      "C-g"  'tabnine-clear-overlay
-      "M-["  'tabnine-previous-completion
-      "M-]"  'tabnine-next-completion)
+(map! :map doom-leader-map
+      :leader
+      "TAB h" '+workspace:switch-previous
+      "TAB l" '+workspace:switch-next
+      "k" 'previous-buffer
+      "j" 'next-buffer)
 
-;; (keymap-global-set "C-h"                'evil-window-left)
-;; (keymap-global-set "C-j"                'evil-window-down)
-;; (keymap-global-set "C-k"                'evil-window-up)
-;; (keymap-global-set "C-l"                'evil-window-right)
+;; (map! :map tabnine-completion-map
+;;       "C-TAB"  'tabnine-accept-completion
+;;       "M-f"  'tabnine-accept-completion-by-word
+;;       "M-<return>"  'tabnine-accept-completion-by-line
+;;       "C-g"  'tabnine-clear-overlay
+;;       "M-["  'tabnine-previous-completion
+;;       "M-]"  'tabnine-next-completion)
 
-;; (keymap-global-set "C-S-h"              '+evil/window-move-left)
-;; (keymap-global-set "C-S-j"              '+evil/window-move-down)
-;; (keymap-global-set "C-S-k"              '+evil/window-move-up)
-;; (keymap-global-set "C-S-l"              '+evil/window-move-right)
-
-;; (keymap-global-set "C-M-h"              'evil-window-decrease-width)
-;; (keymap-global-set "C-M-j"              'evil-window-increase-height)
-;; (keymap-global-set "C-M-k"              'evil-window-decrease-height)
-;; (keymap-global-set "C-M-l"              'evil-window-increase-width)

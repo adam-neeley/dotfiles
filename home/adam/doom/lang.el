@@ -1,9 +1,4 @@
 ;;; lang.el --- Description -*- lexical-binding: t; -*-
-  ;; :hook
-  ;; :config
-  ;; (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
-  ;; (tabnine-start-process)
-  ;; :bind
 
 ;; latex
 (setq! +latex-viewers '(pdf-tools)
@@ -13,7 +8,7 @@
 ;; haskell
 (after! 'haskell-mode-hook
   (set-ligatures! 'haskell-mode
-    :lambda "\\"))
+                  :lambda "\\"))
 
 ;; mips
 (after! 'mips-mode-hook

@@ -24,8 +24,9 @@
  completions-highlight-face 'adam-highlight
  )
 
+
 (setq!
- lsp-headerline-breadcrumb-enable t
+ lsp-headerline-breadcrumb-enable nil
  lsp-ui-sideline-show-hover t
  lsp-ui-sideline-enable t
  lsp-ui-imenu-auto-refresh t)
@@ -58,9 +59,16 @@
        dired-listing-switches "-laG")
 (setq! dirvish-hide-details t)
 
+(use-package! gpt-commit
+  :config
+  (setq! gpt-commit-model-name "gpt-4")
+  (add-hook! 'git-commit-setup-hook 'gpt-commit-message))
+(use-package! gptel)
+
 ;; includes
+(load! "secrets")
 (load! "appearance")
 (load! "keybinds")
+(load! "ai")
 (load! "org-mode")
 (load! "lang")
-(load! "gptel")
