@@ -14,6 +14,8 @@
     neofetch
     figlet # ascii art text
     inputs.nix-search.packages.${system}.default
+    # ai
+    shell-gpt
   ];
 
   environment.sessionVariables = { PAGER = "nvimpager"; };
