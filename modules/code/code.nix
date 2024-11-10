@@ -4,10 +4,6 @@ let cfg = config.modules.code;
 in {
 
   options.modules.code.enable = lib.mkEnableOption true;
-  options.modules.code.runBinaries = lib.mkEnableOption true;
-  options.modules.code.git = {
-    enable = lib.mkEnableOption true;
-  };
 
   config =
     {
@@ -23,6 +19,6 @@ in {
         package = (pkgs.git.override { guiSupport = true; });
       };
 
-      environment.systemPackages = [(lib.mkIf cfg.git.enable pkgs.github-cli ) ];
+      environment.systemPackages = with pkgs; [ gnumake github-cli git-doc ];
     };
 }

@@ -13,8 +13,8 @@ in {
     };
     programs.starship.enable = true;
 
-    environment.shells = [ pkgs.fish ];
-    users.users.adam.shell = pkgs.zsh;
+    environment.shells = [ pkgs.fish pkgs.zsh ];
+    users.users.adam.shell = pkgs.fish;
     home-manager.users.adam.programs = {
       eza = {
         enable = true;

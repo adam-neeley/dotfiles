@@ -26,12 +26,6 @@
   services = {
     blueman.enable = true;
     dbus.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
-    # udev.extraRules = ''
-    #   KERNEL=="event21", ACTION="change", RUN+="${
-    #     builtins.path { path = ./udev-script.sh; }
-    #   }"
-    # '';
   };
 
 }
