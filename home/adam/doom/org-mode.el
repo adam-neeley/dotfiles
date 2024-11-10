@@ -8,8 +8,8 @@
        ;;                          (lambda (directory)
        ;;                            (directory-files-recursively directory org-agenda-file-regexp))
        ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
-       org-startup-with-latex-preview t
-       org-todo-keywords '((sequence "TODO(t)" "NEXT(n)" "PROG(p)" "SKIP(s)" "INTR(i)" "DONE(d)"))
+       org-startup-with-latex-preview nil
+       org-todo-keywords '((sequence "TODO(t)" "DONE(d)" "NO(x)" "NOW(n)" "PROG(p)" "SKIP(s)" "INTR(i)"))
        org-agenda-with-colors t
        org-hide-macro-markers t
        org-mobile-directory "~/docs/org/davfs/"
@@ -46,8 +46,7 @@
                                ("ot" "project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "tasks" :prepend nil)
                                ("on" "project notes" entry #'+org-capture-central-project-notes-file "* %u %?\n %i\n" :heading "notes" :prepend t)
                                ("oc" "project changelog" entry #'+org-capture-central-project-changelog-file "* %u %?\n %i\n" :heading "changelog" :prepend t))
-       org-hide-emphasis-markers t
-       org-format-latex-options (plist-put org-format-latex-options :scale 2))
+       org-hide-emphasis-markers t)
 
 (defvar my-org-hidden-keywords
   '(title startup author date email tags options description))
@@ -69,16 +68,6 @@
         (overlay-put ov 'invisible t)))))
 
 (add-hook 'org-mode-hook 'org-hide-keywords)
-
-(defun org-babel-execute:mips (body)
-  "Execute a block of MIPS code with org-babel."
-  (let ((in-file (org-babel-temp-file "m" ".mips")))
-    (with-temp-file in-file
-      (insert body))
-    (org-babel-eval
-     (format "Mars nc %s"
-             (org-babel-process-file-name in-file))
-     "")))
 
 ;; (custom-set-faces!
 ;;   nil

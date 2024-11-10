@@ -2,62 +2,65 @@
 
 ;; personal info
 
-;; (setq doom-user-dir "$DOOMDIR")
-
 (setq user-full-name "Adam Neeley"
       user-login-name "adam"
       user-mail-address "adam.t.neeley@protonmail.com")
-
-(load! "appearance")
 
 ;; ui
 
 (setq!
  split-width-threshold nil
- preview-scale-function 2
- ;; lsp-ui-sideline-diagnostic-max-lines 2
- line-spacing 3
- display-line-numbers-type t)
+ line-spacing 0
+ display-line-numbers-type nil)
 
 (setq!
  company-idle-delay 0
- company-tooltip-minimum-width 10)
+ company-icon-size '(auto-scale . 32)
+ company-selection-wrap-around t
+ company-tooltip-align-annotations t
+ ;; company-tooltip-maximum-width 1000
+ ;; company-tooltip-minimum-width 10
+ completions-max-height 20
+ completions-highlight-face 'adam-highlight
+ )
 
-
-;; fonts
-(setq! doom-font (font-spec :family "JetBrainsMono Nerd Font" :weight nil :size 16)
-       doom-font-increment 1
-       doom-big-font (font-spec :family "JetBrainsMono Nerd Font" :size 24))
-
-
-;; opacity
-(set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-(add-to-list 'default-frame-alist '(alpha . (90 . 90)))
+(setq!
+ lsp-headerline-breadcrumb-enable t
+ lsp-ui-sideline-show-hover t
+ lsp-ui-sideline-enable t
+ lsp-ui-imenu-auto-refresh t)
 
 ;; web browser
-(setq browse-url-browser-function 'eww-browse-url)
-
+(setq! browse-url-browser-function 'eww-browse-url)
+;; git
+(after! magit
+  (setq magit-diff-refine-hunk 'all)
+  (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
 ;; shell
-(setq shell-file-name (executable-find "bash"))
-(setq-default vterm-shell (executable-find "fish"))
+(setq shell-file-name (executable-find "zsh"))
+(setq-default shell-file-name (executable-find "zsh"))
 (setq-default explicit-shell-file-name (executable-find "fish"))
+
+;; evil
+(setq! evil-scroll-count 5)
 
 ;; projectile
 (setq!
  projectile-auto-discover t
  projectile-sort-order 'recently-active
  projectile-project-search-path '("~/docs/" "~/code/" "~/school/")
- projectile-switch-project-action #'projectile-dired
+ projectile-switch-project-action #'dirvish
  savehist-autosave-interval 10)
 
-(setq! dired-free-space-program)
-
-;; auto-load
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+;; dired
+(setq! dired-directory-face 'adam-directory
+       dired-header-face 'adam-header
+       dired-listing-switches "-laG")
+(setq! dirvish-hide-details t)
 
 ;; includes
+(load! "appearance")
 (load! "keybinds")
 (load! "org-mode")
 (load! "lang")
-;; (if (file-exists-p "gptel.el")
-;;     (load! "gptel"))
+(load! "gptel")
