@@ -18,7 +18,13 @@
         position = "top";
         height = 10;
         output = [ "eDP-1" ];
-        "clock" = {
+        "wlr/taskbar" =
+          {
+            icon-size = 8;
+            # icon-size = 8;
+            format = "{icon}";
+          };
+        clock = {
           format = "{:%a %b %d  %H:%M}";
         };
         modules-left = [ "wlr/taskbar" ];
@@ -31,20 +37,21 @@
   /*
     configs
   */
+  xdg.configFile = {
+    hypr = {
+      source = ./hypr;
+      recursive = true;
+    };
 
-  xdg.configFile.hyprland = {
-    source = ./hypr;
-    recursive = true;
-  };
+    yofi = {
+      source = ./yofi;
+      recursive = true;
+    };
 
-  xdg.configFile.yofi = {
-    source = ./yofi;
-    recursive = true;
-  };
-
-  xdg.configFile.waybar = {
-    source = ./waybar;
-    recursive = true;
+    waybar = {
+      source = ./waybar;
+      recursive = true;
+    };
   };
 
   xdg.portal = {
@@ -68,8 +75,8 @@
     xwayland.enable = true;
     plugins = [
       inputs.hyprland-hy3.packages.${pkgs.system}.default
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-virtual-desktops.packages.${pkgs.system}.default
     ];
     extraConfig = builtins.readFile ./hypr/hyprland.conf;
