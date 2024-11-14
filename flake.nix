@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
-    my-nixpkgs.url = "path:/home/adam/code/nixpkgs";
+    my-nixpkgs.url = "path:/home/adam/projects/nix/nixpkgs/nixpkgs/";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
@@ -63,9 +63,10 @@
       supportedSystems = [ "x86_64-linux" ];
       forEachSupportedSystem = f:
         nixpkgs.lib.genAttrs supportedSystems
-        (system: f { pkgs = import nixpkgs { inherit system; }; });
+          (system: f { pkgs = import nixpkgs { inherit system; }; });
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations = {
 
         iron = nixpkgs.lib.nixosSystem rec {
