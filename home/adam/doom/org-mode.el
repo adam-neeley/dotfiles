@@ -9,7 +9,7 @@
        ;;                            (directory-files-recursively directory org-agenda-file-regexp))
        ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
        org-startup-with-latex-preview nil
-       org-todo-keywords '((sequence "TODO(t)" "DONE(d)" "NO(n)" "PROG(p)" "SKIP(s)" "INTR(i)"))
+       org-todo-keywords '((sequence "[ ](t)" "[x](d)" "TODO(T)" "DONE(D)" "NO(n)" "WAIT(w)" "PROG(p)" "SKIP(s)" "INTR(i)"))
        org-agenda-with-colors t
        org-agenda-skip-scheduled-if-done t
        org-hide-macro-markers t
@@ -70,10 +70,25 @@
 
 (add-hook 'org-mode-hook 'org-hide-keywords)
 
-;; (custom-set-faces!
-;;   nil
-;;   '(org-block :inherit fixed-pitch)
-;;   '(org-code :inherit shadow fixed-pitch)
-;;   '(org-document-info :foreground "dark orange")
-;;   '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
-;;   '(org-document-info-keyword :inherit shadow fixed-pitch))
+
+(setq! org-super-agenda-header-map nil
+       org-super-agenda-unmatched-order 150)
+
+(setq! org-super-agenda-groups
+       '((:name "Schedule" :time-grid t :order 0)
+         (:name "Priority" :priority ("A" "B") :order 10)
+         ;; (:priority "B" :order 20)
+         (:name "Done" :todo ("DONE" "[x]") :order 199)
+         (:name "Scheduled" :scheduled t :order 30)
+         (:name "Buy" :todo "BUY" :tag "buy" :regexp "buy" :order 27)
+         (:name "To do" :todo ("TODO" "[ ]") :order 25)
+         (:name "Wait" :todo "WAIT" :order 100)
+         (:todo "NO" :order 200)
+         (:todo ("SOMEDAY" "TO-READ" "CHECK") :order 300)))
+
+(custom-set-faces!
+  nil
+  '(org-block :inherit fixed-pitch)
+  '(org-code :inherit shadow fixed-pitch)
+  '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
+  '(org-document-info-keyword :inherit shadow fixed-pitch))

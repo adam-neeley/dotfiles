@@ -31,12 +31,24 @@
  lsp-ui-sideline-enable t
  lsp-ui-imenu-auto-refresh t)
 
+(setq! +doom-dashboard-menu-sections
+       (seq-concatenate
+        'list
+        ;; (list '("dotfiles"
+        ;;         :icon (nerd-icons-octicon "nf-oct-briefcase" :face 'doom-dashboard-menu-title)
+        ;;         :action projectile-switch-project))
+        (cl-subseq +doom-dashboard-menu-sections 0 2)))
+
+;; (setf +doom-dashboard-menu-sections)
+
 ;; web browser
 (setq! browse-url-browser-function 'eww-browse-url)
+
 ;; git
 (after! magit
   (setq magit-diff-refine-hunk 'all)
   (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     ")))
+
 ;; shell
 (setq shell-file-name (executable-find "zsh"))
 (setq-default shell-file-name (executable-find "zsh"))
@@ -49,7 +61,7 @@
 (setq!
  projectile-auto-discover t
  projectile-sort-order 'recently-active
- projectile-project-search-path '("~/docs/" "~/code/" "~/school/")
+ projectile-project-search-path '("~/projects/" "~/code/" "~/docs/" "~/school/")
  projectile-switch-project-action #'dirvish
  savehist-autosave-interval 10)
 
@@ -59,11 +71,15 @@
        dired-listing-switches "-laG")
 (setq! dirvish-hide-details t)
 
+;; ai
 (use-package! gpt-commit
   :config
   (setq! gpt-commit-model-name "gpt-4")
   (add-hook! 'git-commit-setup-hook 'gpt-commit-message))
 (use-package! gptel)
+(use-package! tabnine
+  :config
+  (global-tabnine-mode))
 
 ;; includes
 (load! "secrets")

@@ -12,11 +12,12 @@
 
 ;; ai
 (map!
- :n "C-S-c g m" 'gptel-menu
- :n "C-S-c g s" 'gptel-send
- :n "C-S-c t d" 'tabnine-chat-document-code
- :n "C-S-c t e" 'tabnine-chat-explain-code
- :n "C-S-c t c" 'tabnine-chat)
+ :n "C-S-c c m" #'gptel-menu
+ :n "C-S-c c s" #'gptel-send
+ :n "C-S-c t d" #'tabnine-chat-document-code
+ :n "C-S-c t e" #'tabnine-chat-explain-code
+ :n "C-S-c t t" #'global-tabnine-mode
+ :n "C-S-c t c" #'tabnine-chat)
 
 ;; customize
 (map!

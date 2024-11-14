@@ -30,15 +30,20 @@
 ;; opacity
 (doom/set-frame-opacity 90)
 
-;; (custom-set-faces!
-;;   '(outline-1  :height 3.2)
-;;   '(outline-2  :height 1.4)
-;;   '(outline-3  :height 1.6)
-;;   '(outline-4  :height 1.8)
-;;   '(outline-5  :height 2.0)
-;;   '(outline-6  :height 2.2))
-;; '(default :background "black" :weight bold)
-;; '(region :background "darkgray" :foreground "black" :weight bold))
+(custom-set-faces!
+  '(outline-1  :height 1.4)
+  '(outline-2  :height 1.3)
+  '(outline-3  :height 1.2)
+  '(outline-4  :height 1.1)
+  '(outline-5  :height 1.0)
+  ;; '(outline-6  :height 1.0)
+  ;; '(outline-7  :height 1.0)
+  ;; '(outline-8  :height 1.0)
+
+  ;; '(org-default :inherit variable-pitch :height 1.0)
+  '(org-document-title :inherit variable-pitch :height 3.0)
+  '(org-document-info :height 1.2))
+;; '(default :background "black" :weight normal))
 
 ;; (custom-set-faces!
 ;;   '((outline-1 outline-2 outline-3 outline-4 outline-5 outline-6)

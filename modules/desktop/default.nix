@@ -52,7 +52,7 @@ in {
       git-extras
       protonvpn-cli
       protonvpn-gui
-      qbittorrent-qt5
+      # qbittorrent-qt5
       sshfs
       figlet
       shellcheck

@@ -12,6 +12,8 @@
     settings = {
       mainBar = {
         reload_style_on_change = true;
+
+        mode = "hide"; # dock | hide | invisible | overlay
         layer = "bottom";
         position = "top";
         height = 10;
@@ -20,7 +22,7 @@
           format = "{:%a %b %d  %H:%M}";
         };
         modules-left = [ "wlr/taskbar" ];
-        modules-center = [ "clock" ];
+        # modules-center = [ "clock" ];
         modules-right = [ "mpd" "bluetooth" "battery" ];
       };
     };
@@ -66,8 +68,8 @@
     xwayland.enable = true;
     plugins = [
       inputs.hyprland-hy3.packages.${pkgs.system}.default
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       inputs.hyprland-virtual-desktops.packages.${pkgs.system}.default
     ];
     extraConfig = builtins.readFile ./hypr/hyprland.conf;
