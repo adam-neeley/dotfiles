@@ -70,21 +70,19 @@
 
 (add-hook 'org-mode-hook 'org-hide-keywords)
 
-
+(org-super-agenda-mode)
 (setq! org-super-agenda-header-map nil
-       org-super-agenda-unmatched-order 150)
-
-(setq! org-super-agenda-groups
+       org-super-agenda-unmatched-order 150
+       org-super-agenda-groups
        '((:name "Schedule" :time-grid t :order 0)
          (:name "Priority" :priority ("A" "B") :order 10)
-         ;; (:priority "B" :order 20)
          (:name "Done" :todo ("DONE" "[x]") :order 199)
          (:name "Scheduled" :scheduled t :order 30)
          (:name "Buy" :todo "BUY" :tag "buy" :regexp "buy" :order 27)
          (:name "To do" :todo ("TODO" "[ ]") :order 25)
          (:name "Wait" :todo "WAIT" :order 100)
-         (:todo "NO" :order 200)
-         (:todo ("SOMEDAY" "TO-READ" "CHECK") :order 300)))
+         (:name "Nope" :todo "NO" :order 200)
+         (:name "Eventually" :todo ("SOMEDAY" "TO-READ" "CHECK") :order 300)))
 
 (custom-set-faces!
   nil

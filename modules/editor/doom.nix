@@ -47,6 +47,14 @@ in {
       # :app everywhere
       wtype
       xclip
+
+      # :
+      notmuch
+      # And one of the following
+      gmailieer
+      lieer
+      # isync
+      # offlineimap
     ];
   };
 }

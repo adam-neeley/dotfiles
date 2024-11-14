@@ -81,6 +81,7 @@
   :config
   (global-tabnine-mode))
 
+
 ;; includes
 (load! "secrets")
 (load! "appearance")
