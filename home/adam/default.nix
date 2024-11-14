@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }: {
 
   imports =
-    [ inputs.agenix.homeManagerModules.default ./git.nix ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ];
+    [ inputs.agenix.homeManagerModules.default ./git.nix ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ./email.nix];
 
   config = {
 

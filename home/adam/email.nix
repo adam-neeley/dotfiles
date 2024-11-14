@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [ pass ];
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.notmuch = {
@@ -9,7 +10,7 @@
   };
   accounts.email = {
 
-    accounts.aneeley = {
+    accounts.gmail = {
       flavor = "gmail.com";
       address = "aneeley@gmail.com";
       # gpg = {
@@ -21,6 +22,9 @@
       mbsync = {
         enable = true;
         create = "maildir";
+        # extraConfig.account = {
+        #   AuthMechs = "XOAUTH2";
+        # };
       };
 
       msmtp.enable = true;
@@ -36,5 +40,4 @@
       # userName = "benbals@posteo.de";
     };
   };
-
-};
+}
