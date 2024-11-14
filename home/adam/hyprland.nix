@@ -21,15 +21,14 @@
         "wlr/taskbar" =
           {
             icon-size = 8;
-            # icon-size = 8;
-            format = "{icon}";
+            format = "{icon} {title}";
           };
         clock = {
           format = "{:%a %b %d  %H:%M}";
         };
         modules-left = [ "wlr/taskbar" ];
         # modules-center = [ "clock" ];
-        modules-right = [ "mpd" "bluetooth" "battery" ];
+        modules-right = [ "clock" "battery" ];
       };
     };
   };
