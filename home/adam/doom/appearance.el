@@ -5,11 +5,12 @@
  ;; doom-theme 'doom-solarized-dark-high-contrast
  ;; doom-theme 'doom-badger
  ;; doom-theme 'doom-feather-dark
- ;; doom-theme 'modus-vivendi
+ doom-theme 'modus-vivendi
  ;; doom-theme 'doom-city-lights
  ;; doom-theme 'doom-opera
  ;; doom-theme 'misterioso
- doom-theme 'doom-oceanic-next
+ ;; doom-theme 'doom-oceanic-next
+ ;; doom-theme 'gotham
  fancy-splash-image (concat doom-user-dir "splash.png")
  )
 (setq! modus-themes-bold-constructs t
@@ -37,6 +38,13 @@
   '(outline-3  :height 1.2)
   '(outline-4  :height 1.1)
   '(outline-5  :height 1.0)
+  '(org-agenda-date :height 1.4)
+  '(org-agenda-date-today
+    :weight bold
+    :underline nil
+    :box (:line-width (1 . 1) :color "light gray" :style flat)
+    )
+  ;; '(org-agenda-date-weekend :weight normal :box  )
   ;; '(outline-6  :height 1.0)
   ;; '(outline-7  :height 1.0)
   ;; '(outline-8  :height 1.0)

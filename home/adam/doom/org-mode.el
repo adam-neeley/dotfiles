@@ -2,6 +2,10 @@
 
 ;; org-mode
 (setq! org-directory "~/docs/org/"
+       org-agenda-tags-column 'auto
+       org-super-agenda-show-message nil
+       org-super-agenda-final-group-separator "\n"
+       org-global-tags-completion-table nil
        ;; TODO fix recursive file search:
        ;; org-agenda-files (apply 'append
        ;;                         (mapcar
@@ -9,45 +13,62 @@
        ;;                            (directory-files-recursively directory org-agenda-file-regexp))
        ;;                          '("~/docs/org/" "~/school/" "~/dotfiles/")))
        org-startup-with-latex-preview nil
-       org-todo-keywords '((sequence "[ ](t)" "[x](d)" "TODO(T)" "DONE(D)" "NO(n)" "WAIT(w)" "PROG(p)" "SKIP(s)" "INTR(i)"))
+       org-todo-keywords
+       ;; '((sequence
+       ;;    "[ ](t)" "[x](d)" "TODO(T)" "DONE(D)" "NOW(n)" "NO(N)" "WAIT(w)" "PROG(p)" "SKIP(s)" "INTR(i)"))
+       '((sequence
+          "[ ](t)" ; doing later
+          "[-](n)" ; doing now or soon
+          "|"
+          "[x](d)" ; done
+          )
+         (sequence
+          "TODO(T)" ; doing later
+          "NEXT(N)" ; doing now or soon
+          "|"
+          "DONE(D)" ; done
+          )
+         (sequence
+          "WAIT(w)" ; waiting for some external change (event)
+          "HOLD(h)" ; waiting for some internal change (of mind)
+          "IDEA(i)" ; maybe someday
+          "|"
+          "NOTE(o@/!)" ; end state, just keep track of it
+          "STOP(s@/!)" ; stopped waiting, decided not to work on it
+          ))
        org-agenda-with-colors t
        org-agenda-skip-scheduled-if-done t
+       org-agenda-timegrid-use-ampm t
+       org-agenda-scheduled-leaders '("" "")
+       org-agenda-deadline-leaders '("due today: " "due in %d days: " "due %d ago: ")
+       org-agenda-span 'week
        org-hide-macro-markers t
        ;; org-mobile-directory "~/docs/org/davfs/"
        ;; org-mobile-inbox-for-pull "~/docs/org/mobile/"
-       org-capture-templates '(("t" "todo" entry
-                                (file +org-capture-todo-file)
-                                "* [ ] %?\n%i\n" :prepend t)
-                               ("s" "school" entry
-                                (file "~/docs/org/school.org")
-                                "* %u %?\n%i\n" :prepend t)
-                               ("n" "note" entry
-                                (file +org-capture-notes-file)
-                                "* %u %?\n%i\n" :prepend t)
-                               ("d" "dotfiles todo" entry
-                                (file "~/docs/org/dotfiles.org")
-                                "* TODO %?\n")
-                               ("j" "journal" entry
-                                (file+olp+datetree +org-capture-journal-file)
-                                "* %u %?\n%i\n" :prepend t)
-                               ("i" "idea" entry
-                                (file "~/docs/org/ideas.org")
-                                "* IDEA %?\n%i\n" :prepend t)
-                               ("p" "templates for projects")
-                               ("pt" "project-local TODO" entry
-                                (file+headline +org-capture-project-todo-file "inbox")
-                                "* TODO %?\n%i\n" :prepend t)
-                               ("pn" "project-local notes" entry
-                                (file+headline +org-capture-project-notes-file "inbox")
-                                "* %u %?\n%i\n" :prepend t)
-                               ("pc" "project-local changelog" entry
-                                (file+headline +org-capture-project-changelog-file "unreleased")
-                                "* %u %?\n%i\n" :prepend t)
-                               ("o" "centralized templates for projects")
-                               ("ot" "project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "tasks" :prepend nil)
-                               ("on" "project notes" entry #'+org-capture-central-project-notes-file "* %u %?\n %i\n" :heading "notes" :prepend t)
-                               ("oc" "project changelog" entry #'+org-capture-central-project-changelog-file "* %u %?\n %i\n" :heading "changelog" :prepend t))
-       org-hide-emphasis-markers t)
+       )
+
+;; (setq! org-capture-templates
+;; TODO
+;;        ((org-capture-todo "todo")))
+(setq!
+ org-capture-templates
+ '(("t" "todo"   entry (file +org-capture-todo-file)  "* [ ] %?" :prepend nil :heading "inbox")
+   ("s" "school" entry (file "~/docs/org/school.org") "* [ ] %?" :prepend nil :heading "school")
+   ("n" "note"   entry (file +org-capture-notes-file) "* NOTE %?" :prepend nil :heading "notes")
+   ("d" "dotfiles" entry (file +org-capture-todo-file) "* [ ] %?" :prepend nil :heading "dotfiles")
+   ("j" "journal" entry (file+olp+datetree +org-capture-journal-file) "* %?")
+   ("i" "idea" entry (file "~/docs/org/ideas.org") "* IDEA %?\n%i" :prepend t)
+   ("p" "templates for projects")
+   ("pt" "project-local todo" entry (file +org-capture-project-todo-file) "* [ ] %?\n%i" :prepend nil)
+   ("pn" "project-local note" entry (file +org-capture-project-notes-file) "* NOTE %? %u" :prepend nil)
+   ("pc" "project-local changelog" entry (file+headline +org-capture-project-changelog-file "unreleased") "* %u %?\n%i\n" :prepend nil)
+   ("o" "centralized templates for projects")
+   ("ot" "project todo" entry #'+org-capture-central-project-todo-file "* TODO %?\n %i\n" :heading "tasks" :prepend nil)
+   ("oi" "project idea" entry #'+org-capture-central-project-todo-file "* IDEA %?\n %i\n" :heading "ideas" :prepend nil)
+   ("on" "project notes" entry #'+org-capture-central-project-notes-file "* %u %?\n %i\n" :heading "notes" :prepend t)
+   ("oc" "project changelog" entry #'+org-capture-central-project-changelog-file "* %u %?\n %i\n" :heading "changelog" :prepend t)))
+
+(setq! org-hide-emphasis-markers t)
 
 (defvar my-org-hidden-keywords
   '(title startup author date email tags options description))
@@ -85,8 +106,11 @@
          (:name "Eventually" :todo ("SOMEDAY" "TO-READ" "CHECK") :order 300)))
 
 (custom-set-faces!
-  nil
   '(org-block :inherit fixed-pitch)
   '(org-code :inherit shadow fixed-pitch)
   '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
-  '(org-document-info-keyword :inherit shadow fixed-pitch))
+  '(org-document-info-keyword :inherit shadow fixed-pitch)
+  '(default :background nil)
+  '(doom-modeline :height 1.05)
+  '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold)
+  '(org-super-agenda-header :inherit org-agenda-structure :height 1.1))
