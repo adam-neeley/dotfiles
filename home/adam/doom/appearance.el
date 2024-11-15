@@ -6,9 +6,10 @@
  ;; doom-theme 'doom-badger
  ;; doom-theme 'doom-feather-dark
  ;; doom-theme 'modus-vivendi
- doom-theme 'doom-city-lights
+ ;; doom-theme 'doom-city-lights
  ;; doom-theme 'doom-opera
  ;; doom-theme 'misterioso
+ doom-theme 'doom-oceanic-next
  fancy-splash-image (concat doom-user-dir "splash.png")
  )
 (setq! modus-themes-bold-constructs t
