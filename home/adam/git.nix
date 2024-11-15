@@ -25,11 +25,7 @@ with lib; {
         merge = {
           conflictstyle = "zdiff3";
         };
-        url = {
-          "ssh://git@host" = {
-            insteadOf = "otherhost";
-          };
-        };
+        github.user = "adam-neeley";
       };
     };
   };

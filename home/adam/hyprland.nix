@@ -13,7 +13,7 @@
       mainBar = {
         reload_style_on_change = true;
 
-        mode = "hide"; # dock | hide | invisible | overlay
+        # mode = "overlay"; # dock | hide | invisible | overlay
         layer = "bottom";
         position = "top";
         height = 10;
@@ -21,7 +21,7 @@
         "wlr/taskbar" =
           {
             icon-size = 8;
-            format = "{icon} {title}";
+            format = "{icon}";
           };
         clock = {
           format = "{:%a %b %d  %H:%M}";

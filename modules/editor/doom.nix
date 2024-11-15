@@ -47,10 +47,8 @@ in {
       # :app everywhere
       wtype
       xclip
-
-      # :
+      # email:
       notmuch
-      # And one of the following
       gmailieer
       lieer
       # isync

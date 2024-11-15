@@ -1,4 +1,4 @@
-#+title: monadam's nice nixOS config
+#+title: monadam's /nice/ nixOS config
 
 * work in progress
 provided for your amusement
