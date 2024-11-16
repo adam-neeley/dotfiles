@@ -15,6 +15,9 @@ in {
 
     environment.shells = [ pkgs.fish pkgs.zsh ];
     users.users.adam.shell = pkgs.fish;
+
+    environment.shellAliases = { };
+
     home-manager.users.adam.programs = {
       eza = {
         enable = true;

@@ -48,125 +48,29 @@ with builtins; {
 
     };
 
-    services = {
-      blueman.enable = true;
-
-      pipewire = {
-        enable = false;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-        jack.enable = false;
-      };
-    };
-
-    environment = {
-      systemPackages = with pkgs; [
-        wget
-        vim
-        git
-        cached-nix-shell # fast
-        (pkgs.writeShellScriptBin "rebuild"
-          (builtins.readFile ./scripts/rebuild))
-        (pkgs.writeShellScriptBin "list-generations"
-          (builtins.readFile ./scripts/list-generations))
-      ];
-      shellAliases = { };
-    };
-
-    nix = {
-      registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-
-      nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}")
-        config.nix.registry;
-
-      optimise.automatic = true;
-
-      settings = {
-        experimental-features = "nix-command flakes";
-        auto-optimise-store = true;
-        trusted-users = [ "adam" "@wheel" ];
-
-        substituters =
-          [ "https://hyprland.cachix.org" "https://nix-community.cachix.org" ];
-        trusted-public-keys = [
-          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
-      };
-    };
-
-    nixpkgs = {
-      overlays = [ inputs.emacs-overlay.overlays.default ];
-      config = { allowUnfree = true; };
-    };
-
-    system.nixos.label = (builtins.concatStringsSep "-"
-      (builtins.sort (x: y: x < y) config.system.nixos.tags))
-    + config.system.nixos.version;
-
-    networking = {
-      networkmanager.enable = true;
-      firewall.enable = false;
-      extraHosts = ''
-        192.168.1.1   router.home
-        192.168.1.110 nexus.home
-        192.168.1.120 carbon.home
-        192.168.1.130 iron.home
-        71.19.146.26  tornado
-      '';
-    };
-
-    boot = {
-      kernelPackages = pkgs.linuxPackages_zen;
-
-      loader = {
-        grub.enable = true;
-        grub.device = "nodev";
-        # grub.useOSProber = true;
-        # systemd-boot.enable = true;
-        efi.canTouchEfiVariables = true;
-      };
-    };
-
-    hardware = {
-      pulseaudio.enable = true;
-      bluetooth.enable = true;
-      brillo.enable = true;
-    };
-
-    sound.enable = true;
-
-    users = {
-      users = {
-        adam = {
-          description = "monadam";
-          extraGroups = [ "networkmanager" "wheel" "audio" "davfs2" ];
-          initialHashedPassword =
-            "$y$j9T$42f.KUzl/ncm8ttyPcbwO1$sVm14SGGhAky1aYpGKKmvGKwG7udbyfDmvzitOk3vO0";
-          isNormalUser = true;
-          openssh.authorizedKeys.keys = [ ];
-        };
-      };
-    };
+    environment.systemPackages = with pkgs;[
+      wget
+      vim
+      git
+      # cached-nix-shell # fast TODO remove?
+    ];
 
     time.timeZone = "America/Los_Angeles";
 
-    i18n.defaultLocale = "en_US.UTF-8";
-
-    i18n.extraLocaleSettings = {
-      LC_ADDRESS = "en_US.UTF-8";
-      LC_IDENTIFICATION = "en_US.UTF-8";
-      LC_MEASUREMENT = "en_US.UTF-8";
-      LC_MONETARY = "en_US.UTF-8";
-      LC_NAME = "en_US.UTF-8";
-      LC_NUMERIC = "en_US.UTF-8";
-      LC_PAPER = "en_US.UTF-8";
-      LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
+    i18n = {
+      defaultLocale = "en_US.UTF-8";
+      extraLocaleSettings = {
+        LC_ADDRESS = "en_US.UTF-8";
+        LC_IDENTIFICATION = "en_US.UTF-8";
+        LC_MEASUREMENT = "en_US.UTF-8";
+        LC_MONETARY = "en_US.UTF-8";
+        LC_NAME = "en_US.UTF-8";
+        LC_NUMERIC = "en_US.UTF-8";
+        LC_PAPER = "en_US.UTF-8";
+        LC_TELEPHONE = "en_US.UTF-8";
+        LC_TIME = "en_US.UTF-8";
+      };
     };
-
-    system.stateVersion = "23.05";
 
     user =
       let

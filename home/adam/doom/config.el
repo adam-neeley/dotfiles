@@ -61,31 +61,21 @@
 (setq!
  projectile-auto-discover t
  projectile-sort-order 'recently-active
- projectile-project-search-path '("~/projects/" "~/code/" "~/docs/" "~/school/")
+ projectile-project-search-path '("~/projects/" "~/code/"
+                                  ;;"~/docs/" "~/school/"
+                                  )
  projectile-switch-project-action #'dirvish
  savehist-autosave-interval 10)
 
 ;; dired
-(setq! dired-directory-face 'adam-directory
-       dired-header-face 'adam-header
-       dired-listing-switches "-laG")
-(setq! dirvish-hide-details t)
-
-;; ai
-(use-package! gpt-commit
-  :config
-  (setq! gpt-commit-model-name "gpt-4")
-  (add-hook! 'git-commit-setup-hook 'gpt-commit-message))
-(use-package! gptel)
-(use-package! tabnine
-  :config
-  (global-tabnine-mode))
-
+(setq!
+ dired-listing-switches "-laG"
+ dirvish-hide-details t)
 
 ;; includes
 (load! "secrets")
 (load! "appearance")
 (load! "keybinds")
 (load! "ai")
-(load! "org-mode")
 (load! "lang")
+(load! "org-mode")

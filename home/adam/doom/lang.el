@@ -9,6 +9,9 @@
 (after! 'haskell-mode-hook
   (set-ligatures! 'haskell-mode
                   :lambda "\\"))
+;; git
+
+(transient-append-suffix 'magit-merge "-s" '("-a" "Allow unrelated histories" "--allow-unrelated-histories"))
 
 ;; mips
 (after! 'mips-mode-hook

@@ -23,3 +23,5 @@ prev buffer
 next buffer
 ** nixos
 *** use disko
+* todos
+** [ ] set up org-mobile :emacs:

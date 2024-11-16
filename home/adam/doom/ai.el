@@ -1,7 +1,11 @@
 (load! "secrets" doom-user-dir)
 
-;; gptel
+;; tabnine
+(use-package! tabnine
+  :config
+  (global-tabnine-mode))
 
+;; gptel
 (use-package! gptel :config
               (setq! gptel-api-key my-openai-key
                      gptel-directives
@@ -13,7 +17,6 @@
                        (chat .    "You are a large language model and a conversation partner. Respond concisely."))))
 
 ;; gpt-commit
-
 (use-package! gpt-commit :config
               (setq! gpt-commit-openai-key my-openai-key
                      gpt-commit-model-name "gpt-4")
