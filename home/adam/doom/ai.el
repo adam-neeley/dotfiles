@@ -1,4 +1,4 @@
-(load! "secrets" doom-user-dir)
+(load! "secrets" "~/.config/doom/")
 
 ;; tabnine
 (use-package! tabnine

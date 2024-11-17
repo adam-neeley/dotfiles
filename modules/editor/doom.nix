@@ -20,6 +20,7 @@ in {
       ripgrep
       gnutls # for TLS connectivity
 
+
       ## Optional dependencies
       fd # faster projectile indexing
       imagemagick # for image-dired
@@ -53,6 +54,8 @@ in {
       lieer
       # isync
       # offlineimap
+      # markdown
+      multimarkdown
     ];
   };
 }

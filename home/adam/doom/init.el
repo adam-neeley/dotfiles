@@ -130,7 +130,7 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org -present +pretty -contacts)               ; organize your plain life in plain text
+       (org +pretty -contacts)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;(purescript +lsp)        ; javascript, but functional
@@ -155,8 +155,8 @@
 
        :email
        ;; (mu4e +org +gmail)
-       (notmuch +org)
-       (wanderlust +gmail)
+       ;; (notmuch +org)
+       ;; (wanderlust +gmail)
 
        :app
        calendar

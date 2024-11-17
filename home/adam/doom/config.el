@@ -1,4 +1,9 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+(setq!
+ config-dir "~/.config/doom"
+ dotfiles "~/dotfiles"
+ my/secrets (concat config-dir "/secrets.el")
+ doom-user-dir (concat dotfiles "/home/adam/doom"))
 
 ;; personal info
 
@@ -7,11 +12,12 @@
       user-mail-address "adam.t.neeley@protonmail.com")
 
 ;; ui
-
 (setq!
- split-width-threshold nil
+ window-min-width 30
+ split-width-threshold 80
+ split-height-threshold 40
  line-spacing 0
- display-line-numbers-type nil)
+ display-line-numbers-type t)
 
 (setq!
  company-idle-delay 0
@@ -73,9 +79,9 @@
  dirvish-hide-details t)
 
 ;; includes
-(load! "secrets")
+(load! my/secrets)
+(load! "org-mode")
 (load! "appearance")
 (load! "keybinds")
 (load! "ai")
 (load! "lang")
-(load! "org-mode")

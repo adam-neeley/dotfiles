@@ -1,46 +1,39 @@
 ;; keybindings
 
-(map! :g "C-="      #'default-text-scale-increase
-      :g "C--"      #'default-text-scale-decrease
-      :g "C-s"      #'save-buffer
-      :g "C-/"      #'comment-line)
+(map! "C-="      #'default-text-scale-increase
+      "C--"      #'default-text-scale-decrease
+      "C-s"      #'save-buffer
+      "C-/"      #'comment-line)
 
 ;; make
-(map! :leader
-      :n "M R"      #'+make/run
-      :n "M L"      #'+make/run-last)
+(map! :prefix ("C-m" "make")
+      :n "r"      #'+make/run
+      :n "l"      #'+make/run-last)
+
+;; org-capture
+(map! :n "C-S-x" #'org-capture)
 
 ;; ai
-(map!
- :n "C-S-c c m" #'gptel-menu
- :n "C-S-c c s" #'gptel-send
- :n "C-S-c t d" #'tabnine-chat-document-code
- :n "C-S-c t e" #'tabnine-chat-explain-code
- :n "C-S-c t t" #'global-tabnine-mode
- :n "C-S-c t c" #'tabnine-chat)
+(map! :prefix "C-S-c"
+      :n "m"   #'gptel-menu
+      :n "s"   #'gptel-send
+      :n "t d" #'tabnine-chat-document-code
+      :n "t e" #'tabnine-chat-explain-code
+      :n "t t" #'global-tabnine-mode
+      :n "t c" #'tabnine-chat)
 
 ;; customize
-(map!
- "C-' f" 'customize-face
- "C-' b" 'customize-browse
- "C-' c" 'customize-changed
- "C-' t t" 'customize-themes
- "C-' t c" 'customize-create-theme
- "C-' o" 'customize-option
- "C-' O" 'customize-option-other-window)
+(map! :prefix "C-'"
+      "f"   'customize-face
+      "b"   'customize-browse
+      "c"   'customize-changed
+      "t t" 'customize-themes
+      "t c" 'customize-create-theme
+      "o"   'customize-option
+      "O"   'customize-option-other-window)
 
-(map! :map doom-leader-map
-      :leader
+(map! :leader
       "TAB h" '+workspace:switch-previous
       "TAB l" '+workspace:switch-next
       "k" 'previous-buffer
       "j" 'next-buffer)
-
-;; (map! :map tabnine-completion-map
-;;       "C-TAB"  'tabnine-accept-completion
-;;       "M-f"  'tabnine-accept-completion-by-word
-;;       "M-<return>"  'tabnine-accept-completion-by-line
-;;       "C-g"  'tabnine-clear-overlay
-;;       "M-["  'tabnine-previous-completion
-;;       "M-]"  'tabnine-next-completion)
-

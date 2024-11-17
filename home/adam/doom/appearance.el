@@ -15,24 +15,16 @@
                          ))
 (defun adam/random-theme ()
   "Load random theme"
-  (setq! doom-theme (nth (random (length favorite-themes)) favorite-themes))
-  (message "SET THEME %s" doom-theme )
+  (interactive)
+  (setq doom-theme (nth (random (length favorite-themes)) favorite-themes))
   (doom/reload-theme)
-  (message "RELOADED THEME"))
-
+  (message "SET THEME %s" doom-theme))
 (adam/random-theme)
 
 (setq! fancy-splash-image (concat doom-user-dir "splash.png"))
 (setq! modus-themes-bold-constructs t
-       ;; modus-themes-deuteranopia nil
-       ;; modus-themes-hl-line '(accented underline intense)
        modus-themes-variable-pitch-ui t)
 
-;; fonts
-;; Examples:
-;;   (setq doom-font (font-spec :family "Fira Mono" :size 12))
-;;   (setq doom-font "Terminus (TTF):pixelsize=12:antialias=off")
-;;   (setq doom-font "Fira Code-14")
 (setq! doom-font (font-spec :family "DejaVuSansM Nerd Font" :size 19)
        doom-font-increment 1
        doom-variable-pitch-font (font-spec :family "Alegreya Sans" :size 20)
@@ -51,23 +43,10 @@
   '(outline-3  :height 1.2)
   '(outline-4  :height 1.1)
   '(outline-5  :height 1.0)
-  '(org-agenda-date :height 1.4)
-  '(org-agenda-date-today
-    :weight bold
-    ;; :underline nil
-    :box (:line-width (1 . 1) :color "light gray" :style flat)
-    )
-  ;; '(org-agenda-date-weekend :weight normal :box  )
-  ;; '(outline-6  :height 1.0)
-  ;; '(outline-7  :height 1.0)
-  ;; '(outline-8  :height 1.0)
-
-  ;; '(org-default :inherit variable-pitch :height 1.0)
-  '(org-document-title :inherit variable-pitch :height 3.0)
-  '(org-document-info :height 1.2)
   '(doom-modeline :height 1.05)
-  '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold :height 1.2)
-  '(org-super-agenda-header :inherit org-agenda-structure :height 1.1))
+  '(line-number :height 0.6)
+  '(line-number-current-line :slant normal :inherit line-number hl-line-face)
+  )
 
 ;; (custom-set-faces!
 ;;   '((outline-1 outline-2 outline-3 outline-4 outline-5 outline-6)
