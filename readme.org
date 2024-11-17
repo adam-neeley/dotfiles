@@ -1,30 +1,6 @@
-#+title: monadam's /nice/ nixOS config
-
-* work in progress
-provided for your amusement
-
-* welcome
-These are my dotfiles / NixOS config.
-This is currently a work in progress.
-
-** dotfiles
-A dotfile is a configuration file on Linux (and other UNIX-based) systems, where files and directories that begin with a period are typically hidden from view.
-Today, many dotfiles actually lack the dot, but are placed in the ~/.config/ directory.
-
-** nixos
-NixOS is a distribution of Linux that is powered by the Nix language and package system.
-Without getting into details, Nix is a functional language. Unlike "functions" in many other languages, nix functions are functions in the mathematical sense. That is, for every input it returns exactly one output, and it returns this same output /every time/.
-This means that NixOS is essentially a function that takes a NixOS configuration and returns a fully configured Linux operating system.
-This has many benefits:
-- Reverting to a previous state if something breaks. This allows users to confidently tinker with their system, knowing that everything can easily be reverted.
-- Manage multiple machines running NixOS from a single configuration.
-- Installing a completely custom Linux system (including all the programs) on a new machine very quickly.
-- /Many more/
-
-* todo
-+ migrate ./home/ imports to modules in ./modules/
-+ make option for home-manager.users.adam
+#+title: monadam's /nice/ nixos config
+#+AUTHOR: monadam
 
 * thanks
-** [[https://gitlab.com/hlissner/dotfiles][hlissner's dotfiles]]
-** [[https://github.com/Misterio77/nix-starter-configs][misterio's minimal config]]
++ [[https://gitlab.com/hlissner/dotfiles][hlissner's dotfiles]]
++ [[https://github.com/Misterio77/nix-starter-configs][misterio's minimal config]]
