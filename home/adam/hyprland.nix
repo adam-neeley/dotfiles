@@ -76,7 +76,6 @@
       inputs.hyprland-hy3.packages.${pkgs.system}.default
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
-      inputs.hyprland-virtual-desktops.packages.${pkgs.system}.default
     ];
     extraConfig = builtins.readFile ./hypr/hyprland.conf;
   };
