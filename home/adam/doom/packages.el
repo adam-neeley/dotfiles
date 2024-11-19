@@ -6,8 +6,9 @@
 (package! gptel)
 (package! tabnine)
 
-;; agenda
+;; org
 (package! org-super-agenda)
+(package! org-static-blog)
 
 ;; noter
 (package! djvu)

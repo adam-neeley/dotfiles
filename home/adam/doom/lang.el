@@ -49,3 +49,7 @@
 ;; (add-hook! 'python-mode-hook #'lsp-ui-imenu)
 ;; (setq lsp-pyright-langserver-command "basedpyright")
 
+(setq lsp-sqls-connections
+      '(
+        ;; ((driver . "oracle") (dataSourceName . "Server=localhost;Database=sammy;User Id=yyoncho;Password=hunter2;"))
+        ((driver . "oracle") (dataSourceName . "host=nrs-ssh-projects.humboldt.edu port=22 user=atn22 password=local dbname=atn22 sslmode=disable"))))

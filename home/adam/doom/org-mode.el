@@ -88,15 +88,15 @@
    org-super-agenda-header-map nil
    org-super-agenda-unmatched-order 150
    org-super-agenda-groups '(
+                             (:name "Schedule" :time-grid t :order 0)
+                             ;; (:name "Scheduled" :deadline t :scheduled t :order 30)
                              (:name "Nope" :todo "NO" :order 200)
+                             (:name "Eventually" :todo ("[?]" "HOLD" "WAIT") :order 300)
+                             (:name "Priority" :priority ("A" "B") :order 10)
                              (:name "Done" :todo ("DONE" "[x]") :order 199)
                              (:name "Now" :todo ("[-]" "NOW") :order 11)
-                             (:name "Eventually" :todo ("[?]" "HOLD" "WAIT") :order 300)
                              (:name "Idea" :todo "IDEA" :order 102)
                              (:name "Buy" :todo "BUY" :tag "buy" :regexp "buy" :order 27)
-                             (:name "Priority" :priority ("A" "B") :order 12)
-                             (:name "Schedule" :time-grid t :order 0)
-                             (:name "Scheduled" :deadline t :scheduled t :order 30)
                              (:name "To do" :todo ("TODO" "[ ]") :order 25))))
 
 
@@ -113,3 +113,18 @@
   '(org-document-info :height 1.2)
   '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold :height 1.2)
   '(org-super-agenda-header :inherit org-agenda-structure :height 1.1))
+
+(after! org-static-blog
+  (setq! org-static-blog-publish-title "monadam.dev"
+       org-static-blog-publish-url "https://www.monadam.dev/"
+       org-static-blog-publish-directory "~/projects/website/monadamdev/"
+       org-static-blog-posts-directory "~/projects/website/monadamdev/posts/"
+       org-static-blog-drafts-directory "~/projects/website/monadamdev/drafts/"
+       org-static-blog-enable-tags t
+       org-static-blog-page-header "<meta name=\"author\" content=\"monadam\">
+  <meta name=\"referrer\" content=\"no-referrer\">
+  <meta name=\"viewport\" content=\"initial-scale=1,width=device-width,minimum-scale=1\">
+  <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
+  <link rel=\"icon\" href=\"static/favicon.ico\">"
+       org-export-with-toc nil
+       org-export-with-section-numbers nil))

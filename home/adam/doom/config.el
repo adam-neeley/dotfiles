@@ -70,13 +70,12 @@
  projectile-project-search-path '("~/projects/" "~/code/"
                                   ;;"~/docs/" "~/school/"
                                   )
- projectile-switch-project-action #'dirvish
- savehist-autosave-interval 10)
+ ;; projectile-switch-project-action #'dirvish
+ savehist-autosave-interval 100)
 
 ;; dired
 (setq!
- dired-listing-switches "-laG"
- dirvish-hide-details t)
+ dired-listing-switches "-laG")
 
 ;; includes
 (load! my/secrets)

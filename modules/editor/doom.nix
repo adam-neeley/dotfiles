@@ -56,6 +56,12 @@ in {
       # offlineimap
       # markdown
       multimarkdown
+      nodePackages.prettier
+      wl-clipboard-rs
+      gnuplot
+      maim
+      python3Packages.pytest
+      all-the-icons-fonts
     ];
   };
 }
