@@ -19,7 +19,6 @@
   (setq doom-theme (nth (random (length favorite-themes)) favorite-themes))
   (doom/reload-theme)
   (message "SET THEME %s" doom-theme))
-(adam/random-theme)
 
 (setq! fancy-splash-image (concat doom-user-dir "splash.png"))
 (setq! modus-themes-bold-constructs t
