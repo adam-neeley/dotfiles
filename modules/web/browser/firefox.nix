@@ -79,7 +79,7 @@ in {
             #   }
             # ];
           in {
-            "*".installation_mode = "blocked";
+            "*".installation_mode = "allowed";
             # vimium
             "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
               install_url =
