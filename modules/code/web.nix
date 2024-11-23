@@ -31,6 +31,9 @@ in {
       # bun
       bun
 
+      # static website
+      hugo
+
     ];
   };
 }
