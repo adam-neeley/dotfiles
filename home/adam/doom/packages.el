@@ -17,8 +17,15 @@
 ;; code
 (package! mips-mode)
 (package! go-mode)
+
+
+
+
 ;; (package! deno-fmt)
-(package! plantuml-mode)
+
+
+(package! all-the-icons)
+;; (package! easy-hugo)
 
 ;; ;; themes
 ;; (package! nova-theme)

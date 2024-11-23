@@ -65,7 +65,7 @@
 
        :tools
        ;;ansible
-       ;; biblio            ; Writes a PhD for you (citation needed)
+       biblio            ; Writes a PhD for you (citation needed)
        ;; collab            ; buffers with friends
        (debugger +lsp)          ; stepping through code, to help you add bugs
        direnv
@@ -132,7 +132,7 @@
        ;;ocaml             ; an objective camel
        (org +gnuplot +dragndrop +hugo +pretty -contacts)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
-       ;;plantuml          ; diagrams for confusing people more
+       plantuml          ; diagrams for confusing people more
        ;;(purescript +lsp)        ; javascript, but functional
        (python -conda +pyright +lsp +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
@@ -150,7 +150,7 @@
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
        (web +tree-sitter +lsp)               ; the tubes
-       ;;(yaml +lsp)              ; JSON, but readable
+       (yaml +lsp)              ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email

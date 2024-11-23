@@ -61,7 +61,8 @@ in {
       gnuplot
       maim
       python3Packages.pytest
-      all-the-icons-fonts
+      emacs-all-the-icons-fonts
+      plantuml
     ];
   };
 }
