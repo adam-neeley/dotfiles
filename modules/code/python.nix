@@ -13,6 +13,8 @@
       python3Packages.pip
       python3Packages.pyflakes
       python3Packages.python-lsp-server
+
+      uv
     ];
   };
 }

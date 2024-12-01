@@ -18,6 +18,9 @@
     shell-gpt
   ];
 
-  environment.sessionVariables = { PAGER = "nvimpager"; };
+  environment.sessionVariables = {
+    PAGER = "nvimpager";
+    VT_API_KEY = "84f2baa3243a67bcc5fd0428ab254e14453c7d2a7fff22eb02ec5e49624d76cb";
+  };
 
 }

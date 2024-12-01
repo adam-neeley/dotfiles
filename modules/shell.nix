@@ -6,14 +6,16 @@ in {
   options.modules.shell.enable = mkEnableOption false;
   config = mkIf cfg.enable {
 
-    programs.fish.enable = true;
-    programs.zsh = {
-      interactiveShellInit = "fish";
-      enable = true;
+    programs = {
+      fish.enable = true;
+      zsh = {
+        interactiveShellInit = "fish";
+        enable = true;
+      };
+      starship.enable = true;
     };
-    programs.starship.enable = true;
 
-    environment.shells = [ pkgs.fish pkgs.zsh ];
+    environment.shells = with pkgs;[ fish zsh nushell ];
     users.users.adam.shell = pkgs.fish;
 
     environment.shellAliases = { };
