@@ -75,6 +75,7 @@
 
 ;; dired
 (setq!
+ dirvish-hide-details t
  dired-listing-switches "-laG")
 
 ;; includes

@@ -6,16 +6,19 @@
 (package! gptel)
 (package! tabnine)
 
+;; chat
+(package! ement)
+
 ;; org
 (package! org-super-agenda)
 (package! org-static-blog)
 
 ;; noter
-(package! djvu)
-(package! nov)
+;; (package! djvu)
+;; (package! nov)
 
 ;; code
-(package! mips-mode)
+;; (package! mips-mode)
 (package! go-mode)
 
 
