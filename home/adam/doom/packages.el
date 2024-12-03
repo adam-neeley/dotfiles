@@ -7,7 +7,7 @@
 (package! tabnine)
 
 ;; chat
-(package! ement)
+;; (package! ement)
 
 ;; org
 (package! org-super-agenda)

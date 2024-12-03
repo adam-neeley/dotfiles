@@ -3,9 +3,9 @@
 with lib;
 let
   cfg = config.modules.code;
-  # let cfg = config.modules.code.web;
-in {
-  options.modules.code.web = { enable = mkEnableOption false; };
+in
+{
+  options.modules.code.web = { enable = mkEnableOption true; };
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [

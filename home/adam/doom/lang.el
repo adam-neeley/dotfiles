@@ -29,8 +29,8 @@
 
 
 ;; deno
-(add-hook! 'typescript-mode-hook 'deno-fmt-mode)
-(add-hook! 'js2-mode-hook 'deno-fmt-mode)
+;; (add-hook! 'typescript-mode-hook 'deno-fmt-mode)
+;; (add-hook! 'js2-mode-hook 'deno-fmt-mode)
 
 ;; plantuml
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
