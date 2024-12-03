@@ -12,7 +12,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    programs.steam.enable = true;
+    programs.steam.enable = false;
 
     programs.gamemode.enable = true;
 
