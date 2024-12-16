@@ -10,6 +10,7 @@
 ;; (package! ement)
 
 ;; org
+(package! pushover)
 (package! org-super-agenda)
 (package! org-static-blog)
 

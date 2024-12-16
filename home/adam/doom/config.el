@@ -37,13 +37,13 @@
  lsp-ui-sideline-enable t
  lsp-ui-imenu-auto-refresh t)
 
-(setq! +doom-dashboard-menu-sections
-       (seq-concatenate
-        'list
-        ;; (list '("dotfiles"
-        ;;         :icon (nerd-icons-octicon "nf-oct-briefcase" :face 'doom-dashboard-menu-title)
-        ;;         :action projectile-switch-project))
-        (cl-subseq +doom-dashboard-menu-sections 0 2)))
+;; (setq! +doom-dashboard-menu-sections
+;;        (seq-concatenate
+;;         'list
+;;         ;; (list '("dotfiles"
+;;         ;;         :icon (nerd-icons-octicon "nf-oct-briefcase" :face 'doom-dashboard-menu-title)
+;;         ;;         :action projectile-switch-project))
+;;         (cl-subseq +doom-dashboard-menu-sections 0 2)))
 
 ;; (setf +doom-dashboard-menu-sections)
 
@@ -73,10 +73,13 @@
  ;; projectile-switch-project-action #'dirvish
  savehist-autosave-interval 100)
 
-;; dired
 (setq!
  dirvish-hide-details t
+ dired-sort-by-extension t
+ dired-show-hidden-files nil
  dired-listing-switches "-laG")
+
+
 
 ;; includes
 (load! my/secrets)

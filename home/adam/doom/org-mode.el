@@ -100,31 +100,19 @@
                              (:name "To do" :todo ("TODO" "[ ]") :order 25))))
 
 
-(custom-set-faces!
-  '(org-block :inherit fixed-pitch)
-  '(org-code :inherit shadow fixed-pitch)
-  '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
-  '(org-document-title :inherit variable-pitch :height 3.0)
-  '(org-document-info-keyword :inherit shadow fixed-pitch)
-  '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold)
-  '(org-agenda-date-today
-    :weight bold
-    :box (:line-width (1 . 1) :color "light gray" :style flat))
-  '(org-document-info :height 1.2)
-  '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold :height 1.2)
-  '(org-super-agenda-header :inherit org-agenda-structure :height 1.1))
+(setq! org-export-with-section-numbers nil)
 
-(after! org-static-blog
-  (setq! org-static-blog-publish-title "monadam.dev"
-       org-static-blog-publish-url "https://www.monadam.dev/"
-       org-static-blog-publish-directory "~/projects/website/monadamdev/"
-       org-static-blog-posts-directory "~/projects/website/monadamdev/posts/"
-       org-static-blog-drafts-directory "~/projects/website/monadamdev/drafts/"
-       org-static-blog-enable-tags t
-       org-static-blog-page-header "<meta name=\"author\" content=\"monadam\">
-  <meta name=\"referrer\" content=\"no-referrer\">
-  <meta name=\"viewport\" content=\"initial-scale=1,width=device-width,minimum-scale=1\">
-  <link href= \"static/style.css\" rel=\"stylesheet\" type=\"text/css\" />
-  <link rel=\"icon\" href=\"static/favicon.ico\">"
-       org-export-with-toc nil
-       org-export-with-section-numbers nil))
+(org-pdftools-export
+ (custom-set-faces!
+   '(org-block :inherit fixed-pitch)
+   '(org-code :inherit shadow fixed-pitch)
+   '(org-meta-line :inherit font-lock-comment-face fixed-pitch)
+   '(org-document-title :inherit variable-pitch :height 3.0)
+   '(org-document-info-keyword :inherit shadow fixed-pitch)
+   '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold)
+   '(org-agenda-date-today
+     :weight bold
+     :box (:line-width (1 . 1) :color "light gray" :style flat))
+   '(org-document-info :height 1.2)
+   '(org-agenda-date :foreground "#C594C5" :slant italic :weight ultra-bold :height 1.2)
+   '(org-super-agenda-header :inherit org-agenda-structure :height 1.1))
