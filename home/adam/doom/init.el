@@ -130,11 +130,11 @@
        ;;nim               ; python + lisp at the speed of c
        (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       (org +gnuplot +dragndrop +hugo +pretty -contacts)               ; organize your plain life in plain text
+       (org -gnuplot +dragndrop -hugo +pretty +contacts)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
        ;;(purescript +lsp)        ; javascript, but functional
-       (python -conda +pyright +lsp +tree-sitter)            ; beautiful is better than ugly
+       (python -conda -poetry +pyright +lsp +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6

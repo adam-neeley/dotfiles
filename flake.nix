@@ -74,8 +74,8 @@
           };
 
           modules = (lib.mapModulesRec' ./modules lib.id) ++ [
-            ./host/iron/default.nix
             { nixpkgs.config.allowUnfree = true; }
+            ./host/iron/default.nix
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
             inputs.nixvim.nixosModules.nixvim

@@ -2,7 +2,6 @@
 * inbox
 ** TODO setup email [[home/adam/email.nix]]
 ** TODO pytest-dwim configure
-
 [[file:~/dotfiles/home/adam/doom/lang.el]]
 ** doom
 *** STRT keybind

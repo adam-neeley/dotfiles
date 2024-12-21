@@ -88,3 +88,4 @@
 (load! "keybinds")
 (load! "ai")
 (load! "lang")
+(load! "interactive")

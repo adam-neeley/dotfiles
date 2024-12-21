@@ -2,6 +2,8 @@
 (package! agenix)
 
 ;; ai
+(package! chatgpt-shell)
+(package! ob-chatgpt-shell)
 (package! gpt-commit)
 (package! gptel)
 (package! tabnine)
