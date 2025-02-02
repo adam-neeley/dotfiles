@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/appearance.el -*- lexical-binding: t; -*-
 
+(adam/random-theme)
+
 (setq! fancy-splash-image (concat config-dir "splash.png"))
 (setq! modus-themes-bold-constructs t
        modus-themes-variable-pitch-ui t)
@@ -23,3 +25,11 @@
   '(doom-modeline :height 1.0)
   '(line-number :height 0.7 :slant normal)
   '(line-number-current-line :slant normal :inherit line-number font-lock-comment-face))
+
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+(add-hook! 'text-mode-hook 'remove-dos-eol)

@@ -83,9 +83,9 @@
 
 ;; includes
 (load! my/secrets)
-(load! "org-mode")
+(load! "interactive")
 (load! "appearance")
 (load! "keybinds")
+(load! "org-mode")
 (load! "ai")
 (load! "lang")
-(load! "interactive")

@@ -28,10 +28,6 @@
      "")))
 
 
-;; deno
-;; (add-hook! 'typescript-mode-hook 'deno-fmt-mode)
-;; (add-hook! 'js2-mode-hook 'deno-fmt-mode)
-
 ;; plantuml
 (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 
@@ -49,7 +45,3 @@
 ;; (add-hook! 'python-mode-hook #'lsp-ui-imenu)
 ;; (setq lsp-pyright-langserver-command "basedpyright")
 
-(setq lsp-sqls-connections
-      '(
-        ;; ((driver . "oracle") (dataSourceName . "Server=localhost;Database=sammy;User Id=yyoncho;Password=hunter2;"))
-        ((driver . "oracle") (dataSourceName . "host=nrs-ssh-projects.humboldt.edu port=22 user=atn22 password=local dbname=atn22 sslmode=disable"))))
