@@ -1,7 +1,7 @@
 (doom! :input
        :completion
-       ;; (corfu +icons +orderless +dabbrev)
-       (company -tng +childframe)           ; the ultimate code completion backend
+       (corfu +icons +orderless +dabbrev)
+       ;; (company -tng +childframe)           ; the ultimate code completion backend
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -36,7 +36,7 @@
        (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
-       (format +lsp +onsave)  ; automated prettiness
+       (format -lsp +onsave)  ; automated prettiness
        ;;lispy             ; vim for lisp, for people who don't like vim
        multiple-cursors
        ;;objed             ; text object editing for the innocent
@@ -93,7 +93,7 @@
        ;;agda              ; types of types of types of types...
        ;;beancount         ; mind the GAAP
        (cc +tree-sitter)         ; C > C++ == 1
-       (clojure +lsp +tree-sitter)           ; java with a lisp
+       ;; (clojure +lsp +tree-sitter)           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
@@ -114,7 +114,7 @@
        ;;gdscript          ; the language you waited for
        ;;(go +lsp)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
+       ;; (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        (json +lsp)              ; At least it ain't XML
@@ -132,7 +132,7 @@
        ;;ocaml             ; an objective camel
        (org -gnuplot -dragndrop -hugo +pretty -contacts)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
-       plantuml          ; diagrams for confusing people more
+       ;; plantuml          ; diagrams for confusing people more
        ;;(purescript +lsp)        ; javascript, but functional
        (python -conda -poetry +pyright +lsp +tree-sitter)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
@@ -159,11 +159,11 @@
        ;; (wanderlust +gmail)
 
        :app
-       calendar
+       ;; calendar
        ;;emms
        ;; everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
-       (rss +org)        ; emacs as an RSS reader
+       ;; (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
 
        :config

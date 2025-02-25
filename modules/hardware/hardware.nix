@@ -2,8 +2,8 @@
 
 {
   hardware = {
-    pulseaudio.enable = true;
     bluetooth.enable = true;
+    pulseaudio.enable = true;
     brillo.enable = true;
   };
-}
+  }

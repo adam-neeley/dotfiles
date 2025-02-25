@@ -27,12 +27,6 @@ in {
       # cinny-desktop # matrix client
       # discord
 
-      # fonts
-      (pkgs.nerdfonts.override {
-        fonts = [ "NerdFontsSymbolsOnly" "JetBrainsMono" ];
-      })
-
-      # misc TODO refactor
       unzip
       ffmpeg
       pv

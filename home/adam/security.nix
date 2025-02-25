@@ -5,9 +5,11 @@
 
   config = {
 
-    home.packages = with pkgs; [ bitwarden ];
+    home.packages = with pkgs; [
+      bitwarden
+      #gnome-keyring
+    ];
 
-    services.gnome-keyring.enable = true;
     programs.gpg.enable = true;
     services.gpg-agent = {
       pinentryPackage = pkgs.pinentry;

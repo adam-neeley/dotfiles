@@ -10,7 +10,6 @@
       python3Packages.ipython
       python3Packages.isort
       python3Packages.mypy
-      python3Packages.nose
       python3Packages.pip
       # python3Packages.pycodestyle
       python3Packages.pyflakes

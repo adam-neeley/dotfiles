@@ -1,9 +1,9 @@
 (load! "secrets" "~/.config/doom/")
 
 ;; tabnine
-(use-package! tabnine
-  :config
-  (global-tabnine-mode))
+(use-package! tabnine)
+;; :config
+;; (global-tabnine-mode))
 
 ;; gptel
 (setq gptel-api-key my-openai-key)
@@ -15,16 +15,6 @@
         (writing . "You are a professional writer. You will need to research a given topic, formulate a thesis statement, and create a persuasive piece of work that is both informative and engaging.")
         (chat .    "You are a large language model and a conversation partner. Respond concisely.")))
 
-;; chatgpt-shell
-(use-package! chatgpt-shell :config
-              (setq! chatgpt-shell-openai-key my-openai-key))
-
-(setq! tab-width 4)
-;; (use-package! org-chatgpt-shell :config
-;;               (setq! org-chatgpt-shell-openai-key my-openai-key
-;;                      tab-width 4
-;;                      )
-;;               )
 ;; gpt-commit
 (use-package! gpt-commit :config
               (setq! gpt-commit-openai-key my-openai-key

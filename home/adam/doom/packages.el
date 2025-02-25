@@ -22,7 +22,7 @@
 
 ;; code
 ;; (package! mips-mode)
-(package! go-mode)
+;; (package! go-mode)
 
 
 

@@ -39,7 +39,7 @@ in {
       texlive.combined.scheme-medium
       # :lang beancount
       beancount
-      fava
+      # fava
       # :lang nix
       age
       # vterm
@@ -50,7 +50,6 @@ in {
       xclip
       # email:
       notmuch
-      gmailieer
       lieer
       # isync
       # offlineimap

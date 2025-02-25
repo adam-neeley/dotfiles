@@ -20,12 +20,14 @@
   environment.sessionVariables = { };
 
   environment.systemPackages =
-    [ pkgs.networkmanagerapplet pkgs.nettools pkgs.iproute2 pkgs.nixdoc ];
+    with pkgs; [ networkmanagerapplet nettools iproute2 nixdoc
+                 # gnome-settings-daemon
+               ];
 
   # services
   services = {
     blueman.enable = true;
-    dbus.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    # dbus.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   };
 
 }

@@ -43,7 +43,10 @@ in {
           alsa-lib
           # electron-builder
           libGL
-
+          gdk-pixbuf
+          xscreensaver
+          cargo
+          rustc
         ];
       };
 

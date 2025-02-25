@@ -4,7 +4,7 @@
   environment.systemPackages = with pkgs; [
     tldr # man for noobs
     fd # fast find
-    nvimpager
+    # nvimpager
     bat
     unar # unarchive .zip etc
     sutils

@@ -2,7 +2,7 @@
   description = "monadam's nice config";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     my-nixpkgs.url = "path:/home/adam/projects/nix/nixpkgs/nixpkgs/";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -42,8 +42,8 @@
 
     # vim
 
-    nixvim.url = "github:nix-community/nixvim/nixos-24.05";
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    # nixvim.url = "github:nix-community/nixvim/nixos-24.05";
+    # nixvim.inputs.nixpkgs.follows = "nixpkgs";
 
   };
 
@@ -78,7 +78,7 @@
             ./host/iron/default.nix
             home-manager.nixosModules.home-manager
             agenix.nixosModules.default
-            inputs.nixvim.nixosModules.nixvim
+            # inputs.nixvim.nixosModules.nixvim
             {
               home-manager = {
                 extraSpecialArgs = { inherit inputs; };

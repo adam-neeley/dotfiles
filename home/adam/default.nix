@@ -1,7 +1,7 @@
 { pkgs, lib, inputs, ... }: {
 
   imports =
-    [ inputs.agenix.homeManagerModules.default ./git.nix ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ./email.nix];
+    [ inputs.agenix.homeManagerModules.default ./git.nix ./hyprland.nix ./editor.nix ./security.nix ./ncmpcpp.nix ./email.nix ];
 
   config = {
 
@@ -24,8 +24,10 @@
         DOTFILESDIR = "/home/adam/dotfiles";
         # DOOMDIR = "${DOTFILESDIR}/home/adam/doom";
         NIX_ALLOW_UNFREE = 1;
+        NIX_ALLOW_INSECURE = 1;
       };
       stateVersion = "23.05";
+      enableNixpkgsReleaseCheck = true;
     };
 
     home.pointerCursor = {
@@ -49,11 +51,6 @@
     };
 
     gtk = {
-      #   let themes = {
-      #   ayu = {package = pkgs.ayu-theme-gtk-unstable;
-      #          name = ""
-      #         };
-      # }; in{
       enable = true;
 
       theme = {
@@ -62,8 +59,6 @@
       };
 
       iconTheme = {
-        # package = pkgs.gnome.adwaita-icon-theme;
-        # name = "Adwaita";
         package = pkgs.papirus-icon-theme;
         name = "Papirus";
       };

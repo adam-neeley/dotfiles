@@ -1,5 +1,6 @@
 ;;; lang.el --- Description -*- lexical-binding: t; -*-
 
+
 ;; latex
 (setq! +latex-viewers '(pdf-tools)
        +latex-enable-unicode-math 't
@@ -14,22 +15,22 @@
 (transient-append-suffix 'magit-merge "-s" '("-a" "Allow unrelated histories" "--allow-unrelated-histories"))
 
 ;; mips
-(after! 'mips-mode-hook
-  (setq! mips-interpreter "Mars"))
+;; (after! 'mips-mode-hook
+;;   (setq! mips-interpreter "Mars"))
 
-(defun org-babel-execute:mips (body)
-  "Execute a block of MIPS code with org-babel."
-  (let ((in-file (org-babel-temp-file "m" ".mips")))
-    (with-temp-file in-file
-      (insert body))
-    (org-babel-eval
-     (format "Mars nc %s"
-             (org-babel-process-file-name in-file))
-     "")))
+;; (defun org-babel-execute:mips (body)
+;;   "Execute a block of MIPS code with org-babel."
+;;   (let ((in-file (org-babel-temp-file "m" ".mips")))
+;;     (with-temp-file in-file
+;;       (insert body))
+;;     (org-babel-eval
+;;      (format "Mars nc %s"
+;;              (org-babel-process-file-name in-file))
+;;      "")))
 
 
 ;; plantuml
-(add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.puml\\'" . plantuml-mode))
 
 
 ;; nix
@@ -44,4 +45,3 @@
 (setq-hook! 'python-mode-hook +format-with 'black)
 ;; (add-hook! 'python-mode-hook #'lsp-ui-imenu)
 ;; (setq lsp-pyright-langserver-command "basedpyright")
-

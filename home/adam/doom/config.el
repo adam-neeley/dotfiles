@@ -27,7 +27,7 @@
  ;; company-tooltip-maximum-width 1000
  ;; company-tooltip-minimum-width 10
  completions-max-height 20
- completions-highlight-face 'adam-highlight
+ ;; completions-highlight-face 'adam-highlight
  )
 
 
@@ -48,7 +48,7 @@
 ;; (setf +doom-dashboard-menu-sections)
 
 ;; web browser
-(setq! browse-url-browser-function 'eww-browse-url)
+;; (setq! browse-url-browser-function 'eww-browse-url)
 
 ;; git
 (after! magit

@@ -12,8 +12,13 @@ in {
       packages = with pkgs; [
         (nerdfonts.override {
           fonts =
-            [ "JetBrainsMono" "FiraCode" "DroidSansMono" "DejaVuSansMono" ];
+            [ "NerdFontsSymbolsOnly" "JetBrainsMono" "FiraCode" "DroidSansMono" "DejaVuSansMono" ];
         })
+        # nerd-fonts.jetbrains-mono
+        # nerd-fonts.symbols-only
+        # nerd-fonts.fira-code
+        # nerd-fonts.droid-sans-mono
+        # nerd-fonts.dejavu-sans-mono
         alegreya
         alegreya-sans
         noto-fonts
