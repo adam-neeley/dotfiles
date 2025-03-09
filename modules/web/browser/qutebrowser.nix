@@ -76,7 +76,10 @@ in {
         py = "https://docs.python.org/3/search.html?q={}";
         hm =
           "https://github.com/search?q=repo%3Anix-community%2Fhome-manager%20{}";
+        pe = "https://phaser.io/examples/v3.85.0?lib_version_id=1&q={}";
+
       };
+
     };
   };
 }

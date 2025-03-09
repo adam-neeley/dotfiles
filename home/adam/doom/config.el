@@ -73,11 +73,17 @@
  ;; projectile-switch-project-action #'dirvish
  savehist-autosave-interval 100)
 
+(defun +adam/dired-init ()
+  (dired-hide-details-mode t)
+  )
 (setq!
  dirvish-hide-details t
  dired-sort-by-extension t
  dired-show-hidden-files nil
  dired-listing-switches "-laG")
+
+(setq
+ dired-mode-hook '+adam/dired-init)
 
 
 

@@ -1,13 +1,42 @@
-                                        ; KEYBINDS
-
 ;; buffer workspace
 (map!
- "TAB h" '+workspace:switch-previous
- "TAB l" '+workspace:switch-next
+ "C-k" 'previous-buffer
+ "C-j" 'next-buffer
+
+ "C-S-d" 'doom/kill-other-buffers
+ "C-S-D" 'doom/kill-all-buffers
+ "C-h" 'previous-buffer
+ "C-l" 'next-buffer
+
  "C-S-h" '+workspace:switch-previous
  "C-S-l" '+workspace:switch-next
- "C-S-p" 'previous-buffer
- "C-S-n" 'next-buffer)
+
+ "C-S-j" '+workspace:new
+ "C-S-k" '+workspace:delete
+
+ :leader
+ "TAB h" '+workspace:switch-previous
+ "TAB l" '+workspace:switch-next
+ )
+;; (map! :leader
+;;       "TAB h" '+workspace:switch-previous
+;;       "TAB l" '+workspace:switch-next
+;;       "k" 'previous-buffer
+;;       "j" 'next-buffer)
+
+(map! :g :prefix "C-S-b"
+      "k" 'kill-buffer
+      "c" 'create-new-buffer
+      "d" 'delete-buffer
+      "D" 'doom/kill-other-buffers
+      "b" 'ibuffer
+      )
+
+(map! :prefix "C-S-s"
+      ;; "/" '+default/search
+      "b" '+default/search-buffer
+      "p" '+default/search-project
+      )
 
 ;; zoom
 (map! "C-="      #'default-text-scale-increase
@@ -26,6 +55,7 @@
       "q"   #'gptel-abort
       "x"   #'gptel-context-remove-all
 
+      "a"   #'chatgpt-shell
       "p" #'chatgpt-shell-prompt
       :v "r" #'chatgpt-shell-send-region
 

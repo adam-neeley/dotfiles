@@ -15,6 +15,8 @@
         (writing . "You are a professional writer. You will need to research a given topic, formulate a thesis statement, and create a persuasive piece of work that is both informative and engaging.")
         (chat .    "You are a large language model and a conversation partner. Respond concisely.")))
 
+(setq chatgpt-shell-openai-key my-openai-key)
+
 ;; gpt-commit
 (use-package! gpt-commit :config
               (setq! gpt-commit-openai-key my-openai-key

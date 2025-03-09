@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Docs
+Comment=Open Emacs in Docs-style
+Exec=emacs -l ~/dotfiles/home/adam/doom/style/docs.elemacs -l ~/dotfiles/home/adam/doom/style/docs.el
+
+Icon=emacs
+Terminal=false
+Type=Application
