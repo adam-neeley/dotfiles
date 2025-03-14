@@ -45,3 +45,22 @@
 (setq-hook! 'python-mode-hook +format-with 'black)
 ;; (add-hook! 'python-mode-hook #'lsp-ui-imenu)
 ;; (setq lsp-pyright-langserver-command "basedpyright")
+;; Pull the lsp-mode package
+(use-package lsp-mode
+  :commands (lsp lsp-deferred))
+
+;; Set up OLS as the language server for Odin, ensuring lsp-mode is loaded first
+(with-eval-after-load 'lsp-mode
+  (setq-default lsp-auto-guess-root t) ;; Helps find the ols.json file with Projectile or project.el
+  (add-to-list 'lsp-language-id-configuration '(odin-mode . "odin"))
+  (add-to-list 'lsp-language-id-configuration '(odin-ts-mode . "odin"))
+
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "/home/adam/.nix-profile/bin/ols") ;; Adjust the path here
+                    :major-modes '(odin-mode )
+                    :server-id 'ols
+                    :multi-root t))) ;; Ensures lsp-mode sends "workspaceFolders" to the server
+
+;; Add a hook to autostart OLS
+(add-hook 'odin-mode-hook #'lsp-deferred)
+(add-hook 'odin-ts-mode-hook #'lsp-deferred) ;; If you're using the TS mode

@@ -23,6 +23,8 @@
 ;; code
 ;; (package! mips-mode)
 ;; (package! go-mode)
+(package! odin-mode
+  :recipe (:host github :repo "mattt-b/odin-mode"))
 
 
 
