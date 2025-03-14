@@ -7,6 +7,7 @@ in {
   options.modules.desktop.hyprland.enable = lib.mkEnableOption false;
 
   config = lib.mkIf cfg.enable {
+    hardware.opengl.enable = true;
     programs.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;

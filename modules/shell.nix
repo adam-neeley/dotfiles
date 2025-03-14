@@ -15,7 +15,13 @@ in {
       starship.enable = true;
     };
 
-    environment.shells = with pkgs;[ fish zsh nushell ];
+    system.activationScripts.binbash = {
+      text = ''
+        ln -s /run/current-system/sw/bin/bash /bin/bash
+      '';
+    };
+
+    environment.shells = with pkgs; [ fish zsh nushell ];
     users.users.adam.shell = pkgs.fish;
 
     environment.shellAliases = { };

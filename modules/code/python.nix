@@ -4,6 +4,8 @@
   config = {
     environment.systemPackages = with pkgs; [
       pipenv
+      taplo-lsp
+      taplo
       python3Full
       python3Packages.autopep8
       python3Packages.flake8
